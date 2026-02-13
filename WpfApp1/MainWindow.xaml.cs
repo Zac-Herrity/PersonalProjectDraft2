@@ -71,17 +71,54 @@ namespace WpfApp1
             sortByCombo.SelectedIndex = 0; // Default to sorting by title
 
         }
+
+        #region Movie Populating and Filtering
         private void movieListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (movieListBox.SelectedItem is Movie selectedMovie)
             {
                 movieDetails1.Text = selectedMovie.GetMovieDetails();
+                movieTitle1.Text = selectedMovie.Title;
             }
         }
         private void genreCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            FilterSort(); // Call the method to filter and sort the movie list whenever the genre selection changes                                                                                                                                                                                 
         }
+        private void sortByCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FilterSort(); // Call the method to filter and sort the movie list whenever the sorting selection changes
+        }
+        private void FilterSort() //Method is for 
+        {
+            List<Movie> genreList = new List<Movie>(movieList);
+            if (genreCombo.SelectedItem != null)
+            {
+                Genre selectedGenre = (Genre)genreCombo.SelectedItem; //filets movie based on selected genre (if there is one)
+                List<Movie> filteredList = new List<Movie>();
+                foreach (Movie m in genreList)
+                {
+                    if (m.Genre == selectedGenre)
+                    {
+                        filteredList.Add(m); //if movie is same genre as selcted one it is then added to new list
+                    }
+                }
+                genreList = filteredList;
+            }
+
+            string sortingChoice = sortByCombo.SelectedItem as string; //sorts the list based on the sorting choice in the combo box
+            if (sortingChoice == "Title")
+            {
+                genreList = genreList.OrderBy(m => m.Title).ToList();
+            }
+            else if (sortingChoice == "Release Year")
+            {
+                genreList = genreList.OrderBy(m => m.ReleaseYear).ToList();
+            }
+            movieListBox.ItemsSource = genreList; //updates the listbox with the new sorted and filtered list
+        }
+
+        #endregion
 
         #region Nav Buttons
         private void homeBtnList_Click(object sender, RoutedEventArgs e)
@@ -114,22 +151,8 @@ namespace WpfApp1
 
         #endregion
 
-        private void FilterSort() //Method is for 
-        {
-            List<Movie> genreList = new List<Movie>(movieList); 
-            if (genreCombo.SelectedItem != null)
-            {
-                Genre selectedGenre = (Genre)genreCombo.SelectedItem; //filets movie based on selected genre (if there is one)
-                List<Movie> filteredList = new List<Movie>(movieList);
-                foreach (Movie m in genreList)
-                {
-                    if (m.Genre == selectedGenre)
-                    {
-                        filteredList.Add(m); //if movie is same genre as selcted one it is then added to new list
-                    }
-                }
-                genreList = filteredList;
-            }
-        }
+        
+
+        
     }
 }
