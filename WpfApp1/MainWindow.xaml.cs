@@ -20,6 +20,13 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        /*Things to do:
+         * Make a Genre class with properties for Genre Name and a List of Movies in that Genre
+         * Sort by Genre, Director, Release Year
+         * Fill the List of Movies with data from an API (TMDB API is what I'm thinking of using)
+         */
+
+
         public MainWindow()
         {
             InitializeComponent();

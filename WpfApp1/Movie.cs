@@ -6,6 +6,19 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
+    public enum Genre
+    {
+        Action,
+        Comedy,
+        Drama,
+        Horror,
+        ScienceFiction,
+        Romance,
+        Thriller,
+        Animation,
+        Documentary,
+        Fantasy
+    }
     internal class Movie
     {
         //Movie class with properties for Title, Genre, Director and Release Year
@@ -14,12 +27,12 @@ namespace WpfApp1
 
         //Properties
         public string Title { get; set; }
-        public string Genre { get; set; }
+        public Genre Genre { get; set; }
         public string Director { get; set; }
         public DateTime ReleaseYear { get; set; }
 
         //Constructor
-        public Movie(string title, string genre, string director, DateTime releaseYear)
+        public Movie(string title,Genre genre, string director, DateTime releaseYear)
         {
             Title = title;
             Genre = genre;
