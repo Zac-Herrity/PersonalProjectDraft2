@@ -53,8 +53,6 @@ namespace WpfApp1
             new Movie("Free Solo", Genre.Documentary, "Jimmy Chin", new DateTime(2018, 8, 31)),
             new Movie("Harry Potter and the Sorcerer's Stone", Genre.Fantasy, "Chris Columbus", new DateTime(2001, 11, 16))
         };
-
-
         #endregion
 
 
@@ -67,7 +65,9 @@ namespace WpfApp1
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            movieListBox.ItemsSource = movieList;
+            movieListBox.ItemsSource = movieList; // Bind the movie list to the ListBox
+            genreCombo.ItemsSource = Enum.GetValues(typeof(Genre)); // Bind the Genre enum values to the ComboBox for filtering
+
         }
         private void movieListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -75,6 +75,19 @@ namespace WpfApp1
             {
                 movieDetails1.Text = selectedMovie.GetMovieDetails();
             }
+        }
+        private void genreCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Genre selectedGenre = (Genre)genreCombo.SelectedItem; // Filter the movie list based on the selected genre
+            List<Movie> filteredMovies = new List<Movie>();
+            foreach (Movie movie in movieList)
+            {
+                if (movie.Genre == selectedGenre)
+                {
+                    filteredMovies.Add(movie);
+                }
+            }
+            movieListBox.ItemsSource = filteredMovies; // Update the ListBox with the filtered movie list
         }
 
         #region Nav Buttons
@@ -102,6 +115,7 @@ namespace WpfApp1
         {
             MainTabControl.SelectedIndex = 0;
         }
+
 
 
 

@@ -57,7 +57,7 @@
                     <Button x:Name="seenItBtn" Content="Seen It!" HorizontalAlignment="Left" Margin="335,80,0,0" VerticalAlignment="Top" Height="60" Width="80" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
                     <ComboBox x:Name="ratingCombo" HorizontalAlignment="Left" Margin="315,310,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" Grid.Column="1"/>
                     <TextBlock x:Name="ratingText" HorizontalAlignment="Left" Margin="315,276,0,0" TextWrapping="Wrap" Text="1-5*" TextAlignment="Center" VerticalAlignment="Top" Height="29" Width="120" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
-                    <ComboBox x:Name="genreCombo" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+                    <ComboBox x:Name="genreCombo" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" SelectionChanged="genreCombo_SelectionChanged"/>
                     <ComboBox x:Name="sortByCombo" HorizontalAlignment="Left" Margin="166,99,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
                     <TextBlock x:Name="genreBlock" HorizontalAlignment="Left" Margin="24,72,0,0" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
                     <TextBlock x:Name="sortByBlock" HorizontalAlignment="Left" Margin="185,72,0,0" TextWrapping="Wrap" Text="Sort By" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
