@@ -157,6 +157,15 @@ namespace WpfApp1
             FilterSort(); //refreshes movie list
         }
 
+        private void seenMoviesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (seenMoviesList.SelectedItem is Movie selectedMovie)
+            {
+                movieDetails2.Text = selectedMovie.RatedMovieDetails();
+                movieTitle2.Text = selectedMovie.Title;
+            }
+        }
+
         #endregion
 
         #region Nav Buttons
@@ -184,6 +193,7 @@ namespace WpfApp1
         {
             MainTabControl.SelectedIndex = 0;
         }
+
 
 
 

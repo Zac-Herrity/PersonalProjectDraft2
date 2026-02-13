@@ -31,7 +31,7 @@ namespace WpfApp1
         public string Director { get; set; }
         public DateTime ReleaseYear { get; set; }
 
-        public int UserRating { get; set; } //Default at 0 (no rating)
+        public int UserRating { get; set; } //Default at -1 (no rating)
 
         //Constructor
         public Movie(string title,Genre genre, string director, DateTime releaseYear)
@@ -40,7 +40,7 @@ namespace WpfApp1
             Genre = genre;
             Director = director;
             ReleaseYear = releaseYear;
-            UserRating = 0;
+            UserRating = -1;
         }
         //public Movie() { } //Empty constructor for when I start working with an API to get movie data
 
