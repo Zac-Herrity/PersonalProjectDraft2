@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl TabStripPlacement="Top">
+            <TabItem Name="Home" Header="Home" Width="Auto">
+                <Grid>
+                    <Grid Margin="0,0,200,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="90*"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="Black" BorderThickness="1" Margin="598,10,1,10" RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                        </Border>
+                        <Image Source="https://clipart.info/images/ccovers/1559830190popcorn-bowl-png-clipart-8.png" Width="200" Height="200" Panel.ZIndex="1" Margin="197,82,197,83" Grid.Row="1"/>
+                        <TextBlock HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" Height="70" Width="240" FontFamily="Bell MT" FontSize="72" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Grid>
+                    <Button Content="List Of Movies" HorizontalAlignment="Left" Height="60" Margin="650,60,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="18"/>
+                    <Button Content="Seen Movies" HorizontalAlignment="Left" Margin="650,160,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18"/>
+                    <Button Content="Surprise Me!" HorizontalAlignment="Left" Margin="650,260,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="ListOfMovies" Header="List Of Movies" Width="Auto">
+                
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
