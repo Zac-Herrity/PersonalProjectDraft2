@@ -39,7 +39,7 @@ namespace WpfApp1
             Director = director;
             ReleaseYear = releaseYear;
         }
-        public Movie() { } //Empty constructor for when I start working with an API to get movie data
+        //public Movie() { } //Empty constructor for when I start working with an API to get movie data
 
     }
 }
