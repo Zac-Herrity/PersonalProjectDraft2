@@ -65,6 +65,7 @@
                     <Image x:Name="poster1" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="114" Margin="584,80,0,0" VerticalAlignment="Top" Width="114" Grid.Column="1"/>
                     <TextBlock x:Name="movieTitle1" HorizontalAlignment="Left" Margin="605,35,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36" Grid.Column="1"/>
                     <TextBox x:Name="movieDetails1" HorizontalAlignment="Left" Margin="515,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18" Grid.Column="1"/>
+                    <Button x:Name="exit1" Grid.Column="1" Content="X" HorizontalAlignment="Left" Margin="731,10,0,0" VerticalAlignment="Top" Height="21" Width="31" FontSize="16" Click="exit1_Click"/>
 
                 </Grid>
             </TabItem>
@@ -78,6 +79,7 @@
                     <TextBlock x:Name="ratingText2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Change Review" TextAlignment="Center" VerticalAlignment="Top" Height="43" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,178,0,0"/>
                     <ListBox x:Name="seenMoviesList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="22,118,476,61"/>
                     <TextBlock x:Name="seenMoviesText" HorizontalAlignment="Left" Margin="80,55,0,0" TextWrapping="Wrap" Text="Seen Movies" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36"/>
+                    <Button x:Name="exit2" Content="X" HorizontalAlignment="Left" Margin="753,10,0,0" VerticalAlignment="Top" Height="21" Width="31" FontSize="16" Click="exit2_Click"/>
 
                 </Grid>
             </TabItem>

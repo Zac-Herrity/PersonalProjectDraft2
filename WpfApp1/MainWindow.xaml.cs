@@ -25,7 +25,7 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        #region Home Buttons
+        #region Nav Buttons
         private void homeBtnList_Click(object sender, RoutedEventArgs e)
         {
             MainTabControl.SelectedIndex = 1;
@@ -40,6 +40,17 @@ namespace WpfApp1
         {
             //Yet to be implemented
         }
+
+        private void exit1_Click(object sender, RoutedEventArgs e)
+        {
+            MainTabControl.SelectedIndex = 0;
+        }
+
+        private void exit2_Click(object sender, RoutedEventArgs e)
+        {
+            MainTabControl.SelectedIndex = 0;
+        }
+
         #endregion
 
 
