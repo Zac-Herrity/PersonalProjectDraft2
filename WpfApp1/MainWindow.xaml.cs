@@ -80,6 +80,13 @@ namespace WpfApp1
             ratingCombo.Items.Add(4);
             ratingCombo.Items.Add(5);
 
+            ratingCombo2.Items.Add(1);
+            ratingCombo2.Items.Add(2);
+            ratingCombo2.Items.Add(3);
+            ratingCombo2.Items.Add(4);
+            ratingCombo2.Items.Add(5);
+            ratingCombo2.SelectedIndex = -1; //these are for the seen movies tab
+
         }
 
         #region Movie Populating and Filtering
@@ -159,12 +166,44 @@ namespace WpfApp1
 
         private void seenMoviesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (seenMoviesList.SelectedItem is Movie selectedMovie)
+            Movie selectedMovie = seenMoviesList.SelectedItem as Movie;
+            if (seenMoviesList.SelectedItem == selectedMovie)
             {
                 movieDetails2.Text = selectedMovie.RatedMovieDetails();
                 movieTitle2.Text = selectedMovie.Title;
             }
+
+            if (selectedMovie != null)
+            {
+                ratingCombo2.SelectedItem = selectedMovie.UserRating; //sets the rating combo box to be the same as the chosen movie
+
+            }
+            else
+            {
+                ratingCombo2.SelectedIndex = -1; //if no movie is selected it resets the rating combo box
+
+            }
         }
+
+        private void ratingCombo2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Movie selectedMovie = seenMoviesList.SelectedItem as Movie;
+
+            if (selectedMovie == null)
+            {
+                MessageBox.Show("Please select a movie to change the rating of."); //ensures that a movie is selected before trying to change the rating
+                return;
+            }
+            if (ratingCombo2.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a rating for the movie."); //ensures that a rating is selected before trying to change the rating
+                return;
+            }
+
+            int newRating = (int)ratingCombo2.SelectedItem; //gets the new rating from the combo box
+            selectedMovie.UserRating = newRating; //sets the user rating of the selected movie to the new rating
+            movieDetails2.Text = selectedMovie.RatedMovieDetails(); //updates the movie details text block to reflect the new rating
+        }                                                                                                                                                                   
 
         #endregion
 
@@ -193,6 +232,7 @@ namespace WpfApp1
         {
             MainTabControl.SelectedIndex = 0;
         }
+
 
 
 

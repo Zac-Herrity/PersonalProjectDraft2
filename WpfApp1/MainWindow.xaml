@@ -75,7 +75,7 @@
                     <Image x:Name="moviePoster2" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="114" Margin="606,80,0,0" VerticalAlignment="Top" Width="114"/>
                     <TextBlock x:Name="movieTitle2" HorizontalAlignment="Left" Margin="537,20,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="24" Width="247" TextAlignment="Center"/>
                     <TextBox x:Name="movieDetails2" HorizontalAlignment="Left" Margin="537,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18"/>
-                    <ComboBox x:Name="ratingCombo2" HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT"/>
+                    <ComboBox x:Name="ratingCombo2" HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" SelectionChanged="ratingCombo2_SelectionChanged"/>
                     <TextBlock x:Name="ratingText2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Change Review" TextAlignment="Center" VerticalAlignment="Top" Height="43" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,178,0,0"/>
                     <ListBox x:Name="seenMoviesList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="22,118,476,61" SelectionChanged="seenMoviesList_SelectionChanged"/>
                     <TextBlock x:Name="seenMoviesText" HorizontalAlignment="Left" Margin="80,55,0,0" TextWrapping="Wrap" Text="Seen Movies" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36"/>
