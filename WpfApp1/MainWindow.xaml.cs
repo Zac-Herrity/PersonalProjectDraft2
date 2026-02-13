@@ -21,9 +21,6 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         /*Things to do:
-         * Add DateTime method
-         * Make a Genre class with properties for Genre Name and a List of Movies in that Genre
-         * Sort by Genre, Alphabetically, Release Year
          * Fill the List of Movies with data from an API (TMDB API is what I'm thinking of using)
          */
 
@@ -67,6 +64,11 @@ namespace WpfApp1
         {
             movieListBox.ItemsSource = movieList; // Bind the movie list to the ListBox
             genreCombo.ItemsSource = Enum.GetValues(typeof(Genre)); // Bind the Genre enum values to the ComboBox for filtering
+
+            //The sorting combobox
+            sortByCombo.Items.Add("Title");
+            sortByCombo.Items.Add("Release Year");
+            sortByCombo.SelectedIndex = 0; // Default to sorting by title
 
         }
         private void movieListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
