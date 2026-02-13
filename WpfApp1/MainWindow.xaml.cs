@@ -153,6 +153,7 @@ namespace WpfApp1
             ratingCombo.SelectedIndex = -1;
             movieDetails1.Clear();
             movieTitle1.Text = "";
+            seenMoviesList.ItemsSource = seenMovies; //updates the seen movies listbox with the new movie
             FilterSort(); //refreshes movie list
         }
 
