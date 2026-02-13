@@ -54,7 +54,7 @@
                         <ColumnDefinition Width="11*"/>
                         <ColumnDefinition Width="386*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="seenItBtn" Content="Seen It!" HorizontalAlignment="Left" Margin="335,80,0,0" VerticalAlignment="Top" Height="60" Width="80" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
+                    <Button x:Name="seenItBtn" Content="Seen It!" HorizontalAlignment="Left" Margin="335,80,0,0" VerticalAlignment="Top" Height="60" Width="80" FontFamily="Bell MT" FontSize="20" Grid.Column="1" Click="seenItBtn_Click"/>
                     <ComboBox x:Name="ratingCombo" HorizontalAlignment="Left" Margin="315,310,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" Grid.Column="1"/>
                     <TextBlock x:Name="ratingText" HorizontalAlignment="Left" Margin="315,276,0,0" TextWrapping="Wrap" Text="1-5*" TextAlignment="Center" VerticalAlignment="Top" Height="29" Width="120" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
                     <ComboBox x:Name="genreCombo" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" SelectionChanged="genreCombo_SelectionChanged"/>

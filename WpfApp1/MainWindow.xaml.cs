@@ -50,6 +50,8 @@ namespace WpfApp1
             new Movie("Free Solo", Genre.Documentary, "Jimmy Chin", new DateTime(2018, 8, 31)),
             new Movie("Harry Potter and the Sorcerer's Stone", Genre.Fantasy, "Chris Columbus", new DateTime(2001, 11, 16))
         };
+
+        private List<Movie> seenMovies = new List<Movie>(); // List to store movies marked as seen by the user
         #endregion
 
 
@@ -69,6 +71,14 @@ namespace WpfApp1
             sortByCombo.Items.Add("Title");
             sortByCombo.Items.Add("Release Year");
             sortByCombo.SelectedIndex = 0; // Default to sorting by title
+            ratingCombo.SelectedIndex = -1; // force the user to select a rating (prevents default selection of 1)
+
+            //filling rating combo box
+            ratingCombo.Items.Add(1);
+            ratingCombo.Items.Add(2);
+            ratingCombo.Items.Add(3);
+            ratingCombo.Items.Add(4);
+            ratingCombo.Items.Add(5);
 
         }
 
@@ -118,6 +128,11 @@ namespace WpfApp1
             movieListBox.ItemsSource = genreList; //updates the listbox with the new sorted and filtered list
         }
 
+        private void seenItBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
         #endregion
 
         #region Nav Buttons
@@ -149,9 +164,10 @@ namespace WpfApp1
 
 
 
-        #endregion
 
-        
+
+
+        #endregion
 
         
     }

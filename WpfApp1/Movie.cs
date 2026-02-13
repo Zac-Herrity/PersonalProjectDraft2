@@ -31,6 +31,8 @@ namespace WpfApp1
         public string Director { get; set; }
         public DateTime ReleaseYear { get; set; }
 
+        public int UserRating { get; set; } //Default at 0 (no rating)
+
         //Constructor
         public Movie(string title,Genre genre, string director, DateTime releaseYear)
         {
@@ -38,6 +40,7 @@ namespace WpfApp1
             Genre = genre;
             Director = director;
             ReleaseYear = releaseYear;
+            UserRating = 0;
         }
         //public Movie() { } //Empty constructor for when I start working with an API to get movie data
 
@@ -50,6 +53,11 @@ namespace WpfApp1
         public string GetMovieDetails() //Method to get the details of the movie for when a movie is selected in the ListBox
         {
             return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear.ToString("yyyy")}";
+        }
+
+        public string RatedMovieDetails() //This method is seperate as I want to remove rated movies from movieList and add them to a new list of rated movies
+        {
+            return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear.ToString("yyyy")}\nUser Rating: {UserRating}/5 Stars";
         }
 
     }
