@@ -130,7 +130,29 @@ namespace WpfApp1
 
         private void seenItBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            Movie selectedMovie = movieListBox.SelectedItem as Movie; 
+            if (selectedMovie == null)
+            {
+                MessageBox.Show("Please select a movie to mark as seen."); //ensures that a movie is selected before trying to mark it as seen
+                return;
+            }
+
+            if (ratingCombo.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a rating for the movie."); //ensures that a rating is selected before trying to mark the movie as seen
+                return;
+            }
+
+            int chosenRating = (int)ratingCombo.SelectedItem; //gets the selected rating from the combo box
+            selectedMovie.UserRating = chosenRating; //sets the user rating of the selected movie to the chosen rating
+
+            movieList.Remove(selectedMovie); //removes the movie from the main movie list
+            seenMovies.Add(selectedMovie); //adds the movie to the seen movies list
+
+            //refresh page
+            ratingCombo.SelectedIndex = -1;
+            movieDetails1.Clear();
+            movieTitle1.Text = "";
         }
 
         #endregion
