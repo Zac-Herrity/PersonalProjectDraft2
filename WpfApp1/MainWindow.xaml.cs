@@ -69,6 +69,13 @@ namespace WpfApp1
         {
             movieListBox.ItemsSource = movieList;
         }
+        private void movieListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (movieListBox.SelectedItem is Movie selectedMovie)
+            {
+                movieDetails1.Text = selectedMovie.GetMovieDetails();
+            }
+        }
 
         #region Nav Buttons
         private void homeBtnList_Click(object sender, RoutedEventArgs e)
@@ -95,6 +102,7 @@ namespace WpfApp1
         {
             MainTabControl.SelectedIndex = 0;
         }
+
 
 
         #endregion
