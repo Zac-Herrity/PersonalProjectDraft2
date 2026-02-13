@@ -153,6 +153,7 @@ namespace WpfApp1
             ratingCombo.SelectedIndex = -1;
             movieDetails1.Clear();
             movieTitle1.Text = "";
+            FilterSort(); //refreshes movie list
         }
 
         #endregion
