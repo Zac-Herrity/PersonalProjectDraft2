@@ -41,5 +41,16 @@ namespace WpfApp1
         }
         //public Movie() { } //Empty constructor for when I start working with an API to get movie data
 
+        //ToString method for only displaying the movie title in the ListBox
+        public override string ToString()
+        {
+            return Title;
+        }
+
+        public string GetMovieDetails() //Method to get the details of the movie for when a movie is selected in the ListBox
+        {
+            return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear.ToString("yyyy")}";
+        }
+
     }
 }
