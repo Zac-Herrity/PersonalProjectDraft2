@@ -80,16 +80,7 @@ namespace WpfApp1
         }
         private void genreCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Genre selectedGenre = (Genre)genreCombo.SelectedItem; // Filter the movie list based on the selected genre
-            List<Movie> filteredMovies = new List<Movie>();
-            foreach (Movie movie in movieList)
-            {
-                if (movie.Genre == selectedGenre)
-                {
-                    filteredMovies.Add(movie);
-                }
-            }
-            movieListBox.ItemsSource = filteredMovies; // Update the ListBox with the filtered movie list
+            
         }
 
         #region Nav Buttons
@@ -123,6 +114,22 @@ namespace WpfApp1
 
         #endregion
 
-        
+        private void FilterSort() //Method is for 
+        {
+            List<Movie> genreList = new List<Movie>(movieList); 
+            if (genreCombo.SelectedItem != null)
+            {
+                Genre selectedGenre = (Genre)genreCombo.SelectedItem; //filets movie based on selected genre (if there is one)
+                List<Movie> filteredList = new List<Movie>(movieList);
+                foreach (Movie m in genreList)
+                {
+                    if (m.Genre == selectedGenre)
+                    {
+                        filteredList.Add(m); //if movie is same genre as selcted one it is then added to new list
+                    }
+                }
+                genreList = filteredList;
+            }
+        }
     }
 }
