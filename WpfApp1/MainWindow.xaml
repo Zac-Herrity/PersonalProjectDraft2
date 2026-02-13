@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabControl TabStripPlacement="Top">
+        <TabControl TabStripPlacement="Top" Name="MainTabControl">
             <TabItem Name="Home" Header="Home" Width="Auto">
                 <Grid>
-                    <Grid Margin="0,0,200,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="42*"/>
+                        <ColumnDefinition Width="355*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Margin="0,0,200,0" Grid.ColumnSpan="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="10*"/>
                             <RowDefinition Height="90*"/>
@@ -25,8 +29,8 @@
                                 </TransformGroup>
                             </Border.RenderTransform>
                         </Border>
-                        <Image Source="https://clipart.info/images/ccovers/1559830190popcorn-bowl-png-clipart-8.png" Width="200" Height="200" Panel.ZIndex="1" Margin="197,82,197,83" Grid.Row="1"/>
-                        <TextBlock HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" Height="70" Width="240" FontFamily="Bell MT" FontSize="72" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+                        <Image Source="https://clipart.info/images/ccovers/1559830190popcorn-bowl-png-clipart-8.png" Width="200" Height="200" Panel.ZIndex="1" Margin="197,67,197,98" Grid.Row="1"/>
+                        <TextBlock HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" Height="70" Width="178" FontFamily="Bell MT" FontSize="48" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -37,9 +41,9 @@
                             </TextBlock.RenderTransform>
                         </TextBlock>
                     </Grid>
-                    <Button Content="List Of Movies" HorizontalAlignment="Left" Height="60" Margin="650,60,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="18"/>
-                    <Button Content="Seen Movies" HorizontalAlignment="Left" Margin="650,160,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18"/>
-                    <Button Content="Surprise Me!" HorizontalAlignment="Left" Margin="650,260,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18"/>
+                    <Button x:Name="homeBtnList" Content="List Of Movies" HorizontalAlignment="Left" Height="60" Margin="566,60,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnList_Click"/>
+                    <Button x:Name="homeBtnSeen" Content="Seen Movies" HorizontalAlignment="Left" Margin="566,160,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnSeen_Click"/>
+                    <Button Content="Surprise Me!" HorizontalAlignment="Left" Margin="566,260,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1"/>
 
                 </Grid>
             </TabItem>

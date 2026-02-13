@@ -24,5 +24,15 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void homeBtnList_Click(object sender, RoutedEventArgs e)
+        {
+            MainTabControl.SelectedIndex = 1;
+        }
+
+        private void homeBtnSeen_Click(object sender, RoutedEventArgs e)
+        {
+            MainTabControl.SelectedIndex = 2;
+        }
     }
 }
