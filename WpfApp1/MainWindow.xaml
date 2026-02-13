@@ -29,8 +29,8 @@
                                 </TransformGroup>
                             </Border.RenderTransform>
                         </Border>
-                        <Image Source="https://clipart.info/images/ccovers/1559830190popcorn-bowl-png-clipart-8.png" Width="200" Height="200" Panel.ZIndex="1" Margin="197,67,197,98" Grid.Row="1"/>
-                        <TextBlock HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" Height="70" Width="178" FontFamily="Bell MT" FontSize="48" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+                        <Image x:Name="popcorn" Source="https://clipart.info/images/ccovers/1559830190popcorn-bowl-png-clipart-8.png" Width="200" Height="200" Panel.ZIndex="1" Margin="197,67,197,98" Grid.Row="1"/>
+                        <TextBlock x:Name="title" HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" Height="70" Width="178" FontFamily="Bell MT" FontSize="48" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
                             <TextBlock.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -43,37 +43,41 @@
                     </Grid>
                     <Button x:Name="homeBtnList" Content="List Of Movies" HorizontalAlignment="Left" Height="60" Margin="566,60,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnList_Click"/>
                     <Button x:Name="homeBtnSeen" Content="Seen Movies" HorizontalAlignment="Left" Margin="566,160,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnSeen_Click"/>
-                    <Button Content="Surprise Me!" HorizontalAlignment="Left" Margin="566,260,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1"/>
+                    <Button x:Name="homeBtnRandom" Content="Surprise Me!" HorizontalAlignment="Left" Margin="566,260,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnRandom_Click"/>
 
                 </Grid>
             </TabItem>
 
             <TabItem Name="ListOfMovies" Header="List Of Movies" Width="Auto">
                 <Grid>
-                    <Button Content="Seen It!" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" Height="60" Width="80" FontFamily="Bell MT" FontSize="20"/>
-                    <ComboBox HorizontalAlignment="Center" Margin="0,310,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT"/>
-                    <TextBlock HorizontalAlignment="Center" Margin="0,276,0,0" TextWrapping="Wrap" Text="1-5*" TextAlignment="Center" VerticalAlignment="Top" Height="29" Width="120" FontFamily="Bell MT" FontSize="20"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="22,99,0,0" VerticalAlignment="Top" Width="100"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="188,99,0,0" VerticalAlignment="Top" Width="100"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="46,72,0,0" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="20"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="207,72,0,0" TextWrapping="Wrap" Text="Sort By" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="20"/>
-                    <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="22,152,512,61"/>
-                    <Image Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="114" Margin="606,80,0,0" VerticalAlignment="Top" Width="114"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="627,35,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36"/>
-                    <TextBox HorizontalAlignment="Left" Margin="537,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="386*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="seenItBtn" Content="Seen It!" HorizontalAlignment="Left" Margin="335,80,0,0" VerticalAlignment="Top" Height="60" Width="80" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
+                    <ComboBox x:Name="ratingCombo" HorizontalAlignment="Left" Margin="315,310,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" Grid.Column="1"/>
+                    <TextBlock x:Name="ratingText" HorizontalAlignment="Left" Margin="315,276,0,0" TextWrapping="Wrap" Text="1-5*" TextAlignment="Center" VerticalAlignment="Top" Height="29" Width="120" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
+                    <ComboBox x:Name="genreCombo" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+                    <ComboBox x:Name="sortByCombo" HorizontalAlignment="Left" Margin="166,99,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+                    <TextBlock x:Name="genreBlock" HorizontalAlignment="Left" Margin="24,72,0,0" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
+                    <TextBlock x:Name="sortByBlock" HorizontalAlignment="Left" Margin="185,72,0,0" TextWrapping="Wrap" Text="Sort By" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
+                    <ListBox x:Name="movieListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,152,512,61" Grid.Column="1"/>
+                    <Image x:Name="poster1" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="114" Margin="584,80,0,0" VerticalAlignment="Top" Width="114" Grid.Column="1"/>
+                    <TextBlock x:Name="movieTitle1" HorizontalAlignment="Left" Margin="605,35,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36" Grid.Column="1"/>
+                    <TextBox x:Name="movieDetails1" HorizontalAlignment="Left" Margin="515,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18" Grid.Column="1"/>
 
                 </Grid>
             </TabItem>
 
             <TabItem Name="SeenMovies" Header="Seen Movies" Width="Auto">
                 <Grid>
-                    <Image Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="114" Margin="606,80,0,0" VerticalAlignment="Top" Width="114"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="627,35,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36"/>
-                    <TextBox HorizontalAlignment="Left" Margin="537,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18"/>
-                    <ComboBox HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT"/>
-                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Change Review" TextAlignment="Center" VerticalAlignment="Top" Height="43" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,178,0,0"/>
-                    <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="22,118,476,61"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="80,55,0,0" TextWrapping="Wrap" Text="Seen Movies" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36"/>
+                    <Image x:Name="moviePoster2" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="114" Margin="606,80,0,0" VerticalAlignment="Top" Width="114"/>
+                    <TextBlock x:Name="movieTitle2" HorizontalAlignment="Left" Margin="627,35,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36"/>
+                    <TextBox x:Name="movieDetails2" HorizontalAlignment="Left" Margin="537,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18"/>
+                    <ComboBox x:Name="ratingCombo2" HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT"/>
+                    <TextBlock x:Name="ratingText2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Change Review" TextAlignment="Center" VerticalAlignment="Top" Height="43" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,178,0,0"/>
+                    <ListBox x:Name="seenMoviesList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="22,118,476,61"/>
+                    <TextBlock x:Name="seenMoviesText" HorizontalAlignment="Left" Margin="80,55,0,0" TextWrapping="Wrap" Text="Seen Movies" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36"/>
 
                 </Grid>
             </TabItem>

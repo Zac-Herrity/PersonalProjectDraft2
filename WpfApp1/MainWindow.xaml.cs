@@ -25,6 +25,7 @@ namespace WpfApp1
             InitializeComponent();
         }
 
+        #region Home Buttons
         private void homeBtnList_Click(object sender, RoutedEventArgs e)
         {
             MainTabControl.SelectedIndex = 1;
@@ -34,5 +35,13 @@ namespace WpfApp1
         {
             MainTabControl.SelectedIndex = 2;
         }
+
+        private void homeBtnRandom_Click(object sender, RoutedEventArgs e)
+        {
+            //Yet to be implemented
+        }
+        #endregion
+
+
     }
 }
