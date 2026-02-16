@@ -22,6 +22,11 @@ namespace WpfApp1
     {
         /*Things to do:
          * Fill the List of Movies with data from an API (TMDB API is what I'm thinking of using)
+         * Create account classes, login / registration and store user data in db
+         * IMPROVE UI - LOCK IN, pick a colour scheme, make it look nice
+         * Use Frames rather than tabs for navigation. Link buttons to frames.
+         * Add a home page / login
+         * Add a random movie generator page
          */
 
         // Dummy movie data for testing and presentation purposes
