@@ -17,6 +17,5 @@ namespace WpfApp1
         public string Password { get; set; }
         public List<string> SeenMovies { get; set; }
         public int UserRating { get; set; }
-
     }
 }
