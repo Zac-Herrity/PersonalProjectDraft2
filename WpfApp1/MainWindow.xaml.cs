@@ -61,11 +61,10 @@ namespace WpfApp1
                 //Converting the IMDb output into Movie objects and adding them to the movieList
                 foreach (IMDb m in IMDbOutPut)
                 {
-                    // ID,PrimaryTitle, PrimaryImage, Thumbnails, ContentRating, ReleaseDate Genre, RuntimeMinutes, AverageRating
+                    // ID,PrimaryTitle, PrimaryImage, ContentRating, ReleaseDate Genre, RuntimeMinutes, AverageRating
                     string iD = m.id;
                     string title = m.primaryTitle;
                     string image = m.primaryImage;
-                    List<Thumbnail> thumbnails = m.thumbnails;
                     string contentRating = m.contentRating;
                     string releaseDate = m.releaseDate;
                     Genre genre = (Genre)Enum.Parse(typeof(Genre), m.genres[0]); //takes the first genre
@@ -73,6 +72,7 @@ namespace WpfApp1
                     double? averageRating = m.averageRating; //the ? is for nullable types, as some movies may not have a rating
 
 
+                    //Creating a new Movie object with the data from the API and adding it to the movieList
 
 
 

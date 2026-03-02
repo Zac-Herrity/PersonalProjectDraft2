@@ -29,21 +29,27 @@ namespace WpfApp1
         //Properties
         public int MovieID { get; set; }
         public string Title { get; set; }
+        public string Image { get; set; } 
+        public string ContentRating { get; set; }
         public Genre Genre { get; set; }
-        public string Director { get; set; }
-        public DateTime ReleaseYear { get; set; }
+        
+        public int Runtime { get; set; } 
+        public double AverageRating { get; set; } 
+        public string ReleaseYear { get; set; } //Using string as some movies only have release year in API
         public virtual List<User> Users { get; set; } //Navigation property for the User class, will link to the UserID in user class
+
+        //Will try and add these later after everything else is working:
+        public string Director { get; set; } 
+        public string Description { get; set; }
+        // Cast + Locations, budget?
+
 
         public int UserRating { get; set; } //Default at -1 (no rating)
 
         //Constructor
-        public Movie(string title,Genre genre, string director, DateTime releaseYear)
+        public Movie(string MovieID, string Title, string Image, string ContentRating, string ReleaseYear, Genre genre, int Runtime, double AverageRating)
         {
-            Title = title;
-            Genre = genre;
-            Director = director;
-            ReleaseYear = releaseYear;
-            UserRating = -1;
+
         }
         //public Movie() { } //Empty constructor for when I start working with an API to get movie data
 
@@ -55,12 +61,12 @@ namespace WpfApp1
 
         public string GetMovieDetails() //Method to get the details of the movie for when a movie is selected in the ListBox
         {
-            return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear.ToString("yyyy")}";
+            return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear}";
         }
 
         public string RatedMovieDetails() //This method is seperate as I want to remove rated movies from movieList and add them to a new list of rated movies
         {
-            return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear.ToString("yyyy")}\nUser Rating: {UserRating}/5 Stars";
+            return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear}\nUser Rating: {UserRating}/5 Stars";
         }
 
     }

@@ -44,12 +44,11 @@ namespace WpfApp1
         public int? metascore { get; set; }
 
         //Constructor
-        public IMDb(string id, string primaryTitle, string primaryImage, List<Thumbnail> thumbnails, string contentRating, string releaseDate, List<string> genres,
+        public IMDb(string id, string primaryTitle, string primaryImage, string contentRating, string releaseDate, List<string> genres,
             int? runtimeMinutes, double? averageRating)
         {   this.id = id;
             this.primaryTitle = primaryTitle;
             this.primaryImage = primaryImage;
-            this.thumbnails = thumbnails;
             this.contentRating = contentRating;
             this.releaseDate = releaseDate;
             this.genres = genres;

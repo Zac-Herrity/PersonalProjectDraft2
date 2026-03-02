@@ -16,7 +16,7 @@ namespace DatabaseManagement
             using (db)
             {
                 //Use API to get movie data and add it to the database, for now I will just add some dummy data
-                Movie testMovie = new Movie("The Shawshank Redemption", Genre.Drama, "Frank Darabont", new DateTime(1994, 9, 22));
+                Movie testMovie = new Movie("tt0111161", "The Shawshank Redemption", "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYjM3NjA2XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_.jpg", "R", "1994", Genre.Drama, 142, 9.3);
                 User testUser = new User() { UserID = 1, Username = "testuser", Password = "password", UserRating = 5, SeenMovies = new List<string>() { testMovie.Title }, MovieID = testMovie.MovieID, Movie = testMovie };
 
                 db.Movies.Add(testMovie);
