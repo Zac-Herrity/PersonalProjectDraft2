@@ -21,11 +21,13 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         /*Things to do:
-         * Fill the List of Movies with data from an API (TMDB API is what I'm thinking of using)
+         * Fill the List of Movies with data from an API 
          * Look through API, what endpoints exist? Can I add more details to the Movie class based on what data I can get from the API? More features?
+         * 
          * Create account classes, login / registration and store user data in db
+         * 
          * IMPROVE UI - LOCK IN, pick a colour scheme, make it look nice
-         * Use Frames rather than tabs for navigation. Link buttons to frames.
+         * 
          * Add a home page / login
          * Add a random movie generator page
          */

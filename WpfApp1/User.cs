@@ -15,7 +15,10 @@ namespace WpfApp1
         public int UserID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public List<string> SeenMovies { get; set; }
         public int UserRating { get; set; }
+        public List<string> SeenMovies { get; set; } //List of movie titles that the user has seen, will link to the MovieID in movie class
+        public int MovieID { get; set; } //will link to the MovieID in movie class
+
+
     }
 }

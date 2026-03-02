@@ -26,6 +26,7 @@ namespace WpfApp1
         //Note - A lot of this is subject to change once I start working with an API to get movie data, but for now this is what I have in mind for the Movie class
 
         //Properties
+        public int MovieID { get; set; }
         public string Title { get; set; }
         public Genre Genre { get; set; }
         public string Director { get; set; }
