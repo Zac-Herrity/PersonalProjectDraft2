@@ -21,6 +21,8 @@ namespace WpfApp1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    
+    
     public partial class MainWindow : Window
     {
         /*Things to do:
@@ -35,15 +37,16 @@ namespace WpfApp1
          * Add a random movie generator page
          */
 
-        #region API
-        static async Task Main(string[] args)
-        { 
+
+        #region API Movie Data
+        public async Task API()
+        {
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
-            Method = HttpMethod.Get,
-            RequestUri = new Uri("https://imdb236.p.rapidapi.com/api/imdb/most-popular-movies"),
-            Headers =
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://imdb236.p.rapidapi.com/api/imdb/most-popular-movies"),
+                Headers =
             {
             { "x-rapidapi-key", "fc3b3a9015msh458bb3fde05ca24p1becc8jsn9029ffa1b702" },
             { "x-rapidapi-host", "imdb236.p.rapidapi.com" },
@@ -55,31 +58,42 @@ namespace WpfApp1
                 var body = await response.Content.ReadAsStringAsync();
                 List<IMDb> IMDbOutPut = JsonConvert.DeserializeObject<List<IMDb>>(body);
 
+                //Converting the IMDb output into Movie objects and adding them to the movieList
+                foreach (IMDb m in IMDbOutPut)
+                {
+                    // ID,PrimaryTitle, PrimaryImage, Thumbnails, ContentRating, ReleaseDate Genre, RuntimeMinutes, AverageRating
+                    string iD = m.id;
+                    string title = m.primaryTitle;
+                    string image = m.primaryImage;
+                    List<Thumbnail> thumbnails = m.thumbnails;
+                    string contentRating = m.contentRating;
+                    string releaseDate = m.releaseDate;
+                    Genre genre = (Genre)Enum.Parse(typeof(Genre), m.genres[0]); //takes the first genre
+                    int? runtimeMinutes = m.runtimeMinutes;
+                    double? averageRating = m.averageRating; //the ? is for nullable types, as some movies may not have a rating
+
+
+
+
+
+                }
             }
 
         }
         #endregion
 
-        #region API data
-        //This is the class I will use to deserialize the JSON data from the API
         private List<Movie> movieList = new List<Movie>(); // Main list of movies to be displayed in the app
-        
-
-
-
-
         private List<Movie> seenMovies = new List<Movie>(); // List of movies that the user has marked as seen, will be displayed in a separate tab
-
-        #endregion
 
         public MainWindow()
         {
             InitializeComponent();
-           
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+             API(); // Call the API method to get movie data when the window loads
             movieListBox.ItemsSource = movieList; // Bind the movie list to the ListBox
             genreCombo.ItemsSource = Enum.GetValues(typeof(Genre)); // Bind the Genre enum values to the ComboBox for filtering
 
@@ -153,7 +167,7 @@ namespace WpfApp1
 
         private void seenItBtn_Click(object sender, RoutedEventArgs e)
         {
-            Movie selectedMovie = movieListBox.SelectedItem as Movie; 
+            Movie selectedMovie = movieListBox.SelectedItem as Movie;
             if (selectedMovie == null)
             {
                 MessageBox.Show("Please select a movie to mark as seen."); //ensures that a movie is selected before trying to mark it as seen
@@ -219,7 +233,7 @@ namespace WpfApp1
             int newRating = (int)ratingCombo2.SelectedItem; //gets the new rating from the combo box
             selectedMovie.UserRating = newRating; //sets the user rating of the selected movie to the new rating
             movieDetails2.Text = selectedMovie.RatedMovieDetails(); //updates the movie details text block to reflect the new rating
-        }                                                                                                                                                                   
+        }
 
         #endregion
 
@@ -259,6 +273,7 @@ namespace WpfApp1
 
         #endregion
 
-        
+
     }
 }
+
