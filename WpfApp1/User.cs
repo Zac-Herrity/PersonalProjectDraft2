@@ -20,5 +20,6 @@ namespace WpfApp1
         public int MovieID { get; set; } //will link to the MovieID in movie class
 
 
+
     }
 }
