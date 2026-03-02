@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace WpfApp1
         Documentary,
         Fantasy
     }
-    internal class Movie
+    public class Movie
     {
         //Movie class with properties for Title, Genre, Director and Release Year
 
@@ -31,6 +32,7 @@ namespace WpfApp1
         public Genre Genre { get; set; }
         public string Director { get; set; }
         public DateTime ReleaseYear { get; set; }
+        public virtual List<User> Users { get; set; } //Navigation property for the User class, will link to the UserID in user class
 
         public int UserRating { get; set; } //Default at -1 (no rating)
 
@@ -61,5 +63,13 @@ namespace WpfApp1
             return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear.ToString("yyyy")}\nUser Rating: {UserRating}/5 Stars";
         }
 
+    }
+
+    public class MovieData : DbContext
+    {
+        public MovieData() : base("SceneItData") { }
+
+        public DbSet<User> Users { get; set; } //DbSet for the User class, will be used to store user data in the database
+        public DbSet<Movie> Movies { get; set; } //DbSet for the Movie class, will be used to store movie data in the database
     }
 }

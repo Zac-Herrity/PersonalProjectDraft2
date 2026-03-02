@@ -18,6 +18,7 @@ namespace WpfApp1
         public int UserRating { get; set; }
         public List<string> SeenMovies { get; set; } //List of movie titles that the user has seen, will link to the MovieID in movie class
         public int MovieID { get; set; } //will link to the MovieID in movie class
+        public virtual Movie Movie { get; set; } //Navigation property for the Movie class
 
 
 
