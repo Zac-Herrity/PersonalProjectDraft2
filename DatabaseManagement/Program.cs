@@ -27,6 +27,8 @@ namespace DatabaseManagement
                 db.SaveChanges();
                 Console.WriteLine("Saved to database.");
             }
+
+            
         }
     }
 }

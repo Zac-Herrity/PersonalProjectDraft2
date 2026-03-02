@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
 
 namespace WpfApp1
 {
@@ -32,42 +35,47 @@ namespace WpfApp1
          * Add a random movie generator page
          */
 
-        // Dummy movie data for testing and presentation purposes
-        #region Dummy Movie Data
+        #region API
+        static async Task Main(string[] args)
+        { 
+            var client = new HttpClient();
+            var request = new HttpRequestMessage
+            {
+            Method = HttpMethod.Get,
+            RequestUri = new Uri("https://imdb236.p.rapidapi.com/api/imdb/most-popular-movies"),
+            Headers =
+            {
+            { "x-rapidapi-key", "fc3b3a9015msh458bb3fde05ca24p1becc8jsn9029ffa1b702" },
+            { "x-rapidapi-host", "imdb236.p.rapidapi.com" },
+            },
+            };
+            using (var response = await client.SendAsync(request))
+            {
+                response.EnsureSuccessStatusCode();
+                var body = await response.Content.ReadAsStringAsync();
+                List<IMDb> IMDbOutPut = JsonConvert.DeserializeObject<List<IMDb>>(body);
 
-        private List<Movie> movieList = new List<Movie>
-{
-            new Movie("Robots", Genre.Animation, "Chris Wedge", new DateTime(2005, 3, 11)),
-            new Movie("The Dark Knight", Genre.Action, "Christopher Nolan", new DateTime(2008, 7, 18)),
-            new Movie("The Hangover", Genre.Comedy, "Todd Phillips", new DateTime(2009, 6, 5)),
-            new Movie("The Shawshank Redemption", Genre.Drama, "Frank Darabont", new DateTime(1994, 9, 23)),
-            new Movie("The Conjuring", Genre.Horror, "James Wan", new DateTime(2013, 7, 19)),
-            new Movie("Interstellar", Genre.ScienceFiction, "Christopher Nolan", new DateTime(2014, 11, 7)),
-            new Movie("Titanic", Genre.Romance, "James Cameron", new DateTime(1997, 12, 19)),
-            new Movie("Gone Girl", Genre.Thriller, "David Fincher", new DateTime(2014, 10, 3)),
-            new Movie("Planet Earth", Genre.Documentary, "Alastair Fothergill", new DateTime(2006, 3, 5)),
-            new Movie("The Lord of the Rings: The Fellowship of the Ring", Genre.Fantasy, "Peter Jackson", new DateTime(2001, 12, 19)),
-            new Movie("Mad Max: Fury Road", Genre.Action, "George Miller", new DateTime(2015, 5, 15)),
-            new Movie("Superbad", Genre.Comedy, "Greg Mottola", new DateTime(2007, 8, 17)),
-            new Movie("Joker", Genre.Drama, "Todd Phillips", new DateTime(2019, 10, 4)),
-            new Movie("A Quiet Place", Genre.Horror, "John Krasinski", new DateTime(2018, 4, 6)),
-            new Movie("Avatar", Genre.ScienceFiction, "James Cameron", new DateTime(2009, 12, 18)),
-            new Movie("The Notebook", Genre.Romance, "Nick Cassavetes", new DateTime(2004, 6, 25)),
-            new Movie("Se7en", Genre.Thriller, "David Fincher", new DateTime(1995, 9, 22)),
-            new Movie("Frozen", Genre.Animation, "Chris Buck", new DateTime(2013, 11, 27)),
-            new Movie("Free Solo", Genre.Documentary, "Jimmy Chin", new DateTime(2018, 8, 31)),
-            new Movie("Harry Potter and the Sorcerer's Stone", Genre.Fantasy, "Chris Columbus", new DateTime(2001, 11, 16))
-        };
+            }
 
-        private List<Movie> seenMovies = new List<Movie>(); // List to store movies marked as seen by the user
+        }
         #endregion
 
+        #region API data
+        //This is the class I will use to deserialize the JSON data from the API
+        private List<Movie> movieList = new List<Movie>(); // Main list of movies to be displayed in the app
+        
 
+
+
+
+        private List<Movie> seenMovies = new List<Movie>(); // List of movies that the user has marked as seen, will be displayed in a separate tab
+
+        #endregion
 
         public MainWindow()
         {
             InitializeComponent();
-
+           
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
