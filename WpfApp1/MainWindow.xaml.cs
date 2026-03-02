@@ -29,6 +29,8 @@ namespace WpfApp1
          * Fill the List of Movies with data from an API 
          * Look through API, what endpoints exist? Can I add more details to the Movie class based on what data I can get from the API? More features?
          * 
+         * Sort out Genre
+         * 
          * Create account classes, login / registration and store user data in db
          * 
          * IMPROVE UI - LOCK IN, pick a colour scheme, make it look nice
@@ -52,31 +54,43 @@ namespace WpfApp1
             { "x-rapidapi-host", "imdb236.p.rapidapi.com" },
             },
             };
-            using (var response = await client.SendAsync(request))
+            try
             {
-                response.EnsureSuccessStatusCode();
-                var body = await response.Content.ReadAsStringAsync();
-                List<IMDb> IMDbOutPut = JsonConvert.DeserializeObject<List<IMDb>>(body);
-
-                //Converting the IMDb output into Movie objects and adding them to the movieList
-                foreach (IMDb m in IMDbOutPut)
+                using (var response = await client.SendAsync(request))
                 {
-                    // ID,PrimaryTitle, PrimaryImage, ContentRating, ReleaseDate Genre, RuntimeMinutes, AverageRating
-                    string iD = m.id;
-                    string title = m.primaryTitle;
-                    string image = m.primaryImage;
-                    string contentRating = m.contentRating;
-                    string releaseDate = m.releaseDate;
-                    Genre genre = (Genre)Enum.Parse(typeof(Genre), m.genres[0]); //takes the first genre
-                    int? runtimeMinutes = m.runtimeMinutes;
-                    double? averageRating = m.averageRating; //the ? is for nullable types, as some movies may not have a rating
+                    response.EnsureSuccessStatusCode();
+                    var body = await response.Content.ReadAsStringAsync();
+                    List<IMDb> IMDbOutPut = JsonConvert.DeserializeObject<List<IMDb>>(body);
+
+                    //Converting the IMDb output into Movie objects and adding them to the movieList
+                    foreach (IMDb m in IMDbOutPut)
+                    {
+                        // ID,PrimaryTitle, PrimaryImage, ContentRating, ReleaseDate Genre, RuntimeMinutes, AverageRating
+                        string iD = m.id;
+                        string title = m.primaryTitle;
+                        string image = m.primaryImage;
+                        string contentRating = m.contentRating;
+                        string releaseDate = m.releaseDate;
+                        //Genre genre = (Genre)Enum.Parse(typeof(Genre), m.genres[0]); //takes the first genre
+                        Genre genre = Genre.Action;
+                        
+                        int? runtimeMinutes = m.runtimeMinutes;
+                        double? averageRating = m.averageRating; //the ? is for nullable types, as some movies may not have a rating
 
 
-                    //Creating a new Movie object with the data from the API and adding it to the movieList
+                        //Creating a new Movie object with the data from the API and adding it to the movieList
+                        Movie newMovie = new Movie(iD, title, image, contentRating, releaseDate, genre, runtimeMinutes ?? 0, averageRating ?? 0);
+                        //the ?? operator is for null coalescing, if runtimeMinutes or averageRating is null it will default to 0
+                        movieList.Add(newMovie);
 
+                    }
 
-
+                    movieListBox.ItemsSource = movieList; //updates the ListBox with the new movie list from the API
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching movie data from API: " + ex.Message); //shows an error message if there is an issue with the API call
             }
 
         }
