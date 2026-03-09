@@ -71,6 +71,7 @@ namespace WpfApp1
                         string image = m.primaryImage;
                         string contentRating = m.contentRating;
                         string releaseDate = m.releaseDate;
+                        string genreString = m.genres[0].Replace("-", ""); //removes the hyphen from genre string to match api genre
                         Genre genre = (Genre)Enum.Parse(typeof(Genre), m.genres[0]); //takes the first genre
                         
                         
