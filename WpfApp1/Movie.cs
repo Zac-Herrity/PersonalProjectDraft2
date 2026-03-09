@@ -70,12 +70,22 @@ namespace WpfApp1
 
         public string GetMovieDetails() //Method to get the details of the movie for when a movie is selected in the ListBox
         {
-            return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear}";
+            return $"Title: {Title}" +
+                $"\nGenre: {Genre}" +
+                $"\nRuntime: {Runtime} minutes" +
+                $"\nRelease Year: {ReleaseYear}" +
+                $"\nAverage Rating: {AverageRating}/10 Stars"
+            ;
         }
 
         public string RatedMovieDetails() //This method is seperate as I want to remove rated movies from movieList and add them to a new list of rated movies
         {
-            return $"Title: {Title}\nGenre: {Genre}\nDirector: {Director}\nRelease Year: {ReleaseYear}\nUser Rating: {UserRating}/5 Stars";
+            return $"Title: {Title}" +
+                $"\nGenre: {Genre}" +
+                $"\nRuntime: {Runtime} minutes" +
+                $"\nRelease Year: {ReleaseYear}" +
+                $"\nAverage Rating: {AverageRating}/10 Stars" +
+                $"\nYour Rating: {UserRating}/10 Stars";
         }
 
     }

@@ -62,7 +62,7 @@
                     <TextBlock x:Name="genreBlock" HorizontalAlignment="Left" Margin="24,72,0,0" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
                     <TextBlock x:Name="sortByBlock" HorizontalAlignment="Left" Margin="185,72,0,0" TextWrapping="Wrap" Text="Sort By" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="20" Grid.Column="1"/>
                     <ListBox x:Name="movieListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,152,512,61" Grid.Column="1" SelectionChanged="movieListBox_SelectionChanged"/>
-                    <Image x:Name="poster1" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="114" Margin="584,80,0,0" VerticalAlignment="Top" Width="114" Grid.Column="1"/>
+                    <Image x:Name="poster1" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="150" Margin="566,72,0,0" VerticalAlignment="Top" Width="150" Grid.Column="1"/>
                     <TextBlock x:Name="movieTitle1" HorizontalAlignment="Left" Margin="515,20,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="24" Grid.Column="1" Width="247" TextAlignment="Center"/>
                     <TextBox x:Name="movieDetails1" HorizontalAlignment="Left" Margin="515,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18" Grid.Column="1"/>
                     <Button x:Name="exit1" Grid.Column="1" Content="X" HorizontalAlignment="Left" Margin="731,10,0,0" VerticalAlignment="Top" Height="21" Width="31" FontSize="16" Click="exit1_Click"/>
@@ -72,7 +72,7 @@
 
             <TabItem Name="SeenMovies" Header="Seen Movies" Width="Auto">
                 <Grid>
-                    <Image x:Name="moviePoster2" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="114" Margin="606,80,0,0" VerticalAlignment="Top" Width="114"/>
+                    <Image x:Name="moviePoster2" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="150" Margin="588,72,0,0" VerticalAlignment="Top" Width="150"/>
                     <TextBlock x:Name="movieTitle2" HorizontalAlignment="Left" Margin="537,20,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="24" Width="247" TextAlignment="Center"/>
                     <TextBox x:Name="movieDetails2" HorizontalAlignment="Left" Margin="537,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18"/>
                     <ComboBox x:Name="ratingCombo2" HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" SelectionChanged="ratingCombo2_SelectionChanged"/>

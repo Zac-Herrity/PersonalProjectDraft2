@@ -12,7 +12,7 @@ namespace WpfApp1
         //will also contain seen movies and rated movies per user
 
         //Properties
-        public int UserID { get; set; }
+        public string UserID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public int UserRating { get; set; }

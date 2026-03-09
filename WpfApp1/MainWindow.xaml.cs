@@ -141,6 +141,10 @@ namespace WpfApp1
             {
                 movieDetails1.Text = selectedMovie.GetMovieDetails();
                 movieTitle1.Text = selectedMovie.Title;
+
+                //Poster
+                poster1.Source = new BitmapImage(new Uri(selectedMovie.Image));
+                poster1.Height = 150; //sets the height of the poster image, this is necessary as the default height is 0 and it needs to be set to something in order to be visible
             }
         }
         private void genreCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -205,6 +209,7 @@ namespace WpfApp1
             ratingCombo.SelectedIndex = -1;
             movieDetails1.Clear();
             movieTitle1.Text = "";
+            poster1.Height = 0; //hides the poster image until a new movie is selected
             seenMoviesList.ItemsSource = seenMovies; //updates the seen movies listbox with the new movie
             FilterSort(); //refreshes movie list
         }
@@ -228,6 +233,7 @@ namespace WpfApp1
                 ratingCombo2.SelectedIndex = -1; //if no movie is selected it resets the rating combo box
 
             }
+            moviePoster2.Source = new BitmapImage(new Uri(selectedMovie.Image)); //sets the poster image to be the same as the chosen movie
         }
 
         private void ratingCombo2_SelectionChanged(object sender, SelectionChangedEventArgs e)
