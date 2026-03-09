@@ -71,8 +71,8 @@ namespace WpfApp1
                         string image = m.primaryImage;
                         string contentRating = m.contentRating;
                         string releaseDate = m.releaseDate;
-                        //Genre genre = (Genre)Enum.Parse(typeof(Genre), m.genres[0]); //takes the first genre
-                        Genre genre = Genre.Action;
+                        Genre genre = (Genre)Enum.Parse(typeof(Genre), m.genres[0]); //takes the first genre
+                        
                         
                         int? runtimeMinutes = m.runtimeMinutes;
                         double? averageRating = m.averageRating; //the ? is for nullable types, as some movies may not have a rating

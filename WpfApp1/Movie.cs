@@ -7,18 +7,36 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    public enum Genre
+    public enum Genre //Will amend this when I found out which genre is useless
     {
-        Action,
-        Comedy,
         Drama,
-        Horror,
-        ScienceFiction,
+        Documentary,
+        Comedy,
+        Action,
         Romance,
         Thriller,
+        Crime,
+        Horror,
+        Music,
+        Adventure,
+        Family,
         Animation,
-        Documentary,
-        Fantasy
+        RealityTV,
+        Mystery,
+        History,
+        Biography,
+        TalkShow,
+        Sport,
+        Fantasy,
+        SciFi,
+        Musical,
+        News,
+        War,
+        Adult,
+        GameShow,
+        Western,
+        Short,
+        FilmNoir
     }
     public class Movie
     {
@@ -27,7 +45,7 @@ namespace WpfApp1
         //Note - A lot of this is subject to change once I start working with an API to get movie data, but for now this is what I have in mind for the Movie class
 
         //Properties
-        public int MovieID { get; set; }
+        public string MovieID { get; set; }
         public string Title { get; set; }
         public string Image { get; set; } 
         public string ContentRating { get; set; }
@@ -49,6 +67,15 @@ namespace WpfApp1
         //Constructor
         public Movie(string MovieID, string Title, string Image, string ContentRating, string ReleaseYear, Genre genre, int Runtime, double AverageRating)
         {
+            //API constructor, will be used to create movie objects from the API data
+            this.MovieID = MovieID;
+            this.Title = Title;
+            this.Image = Image;
+            this.ContentRating = ContentRating;
+            this.ReleaseYear = ReleaseYear;
+            this.Genre = genre;
+            this.Runtime = Runtime;
+            this.AverageRating = AverageRating;
 
         }
         //public Movie() { } //Empty constructor for when I start working with an API to get movie data
