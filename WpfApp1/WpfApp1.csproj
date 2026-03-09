@@ -69,7 +69,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="IMDb.cs" />
+    <Compile Include="LoginCreation.xaml.cs">
+      <DependentUpon>LoginCreation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
+    <Page Include="LoginCreation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
