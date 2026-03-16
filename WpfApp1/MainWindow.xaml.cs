@@ -219,12 +219,6 @@ namespace WpfApp1
         private void seenMoviesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Movie selectedMovie = seenMoviesList.SelectedItem as Movie;
-            if (seenMoviesList.SelectedItem == selectedMovie)
-            {
-                movieDetails2.Text = selectedMovie.RatedMovieDetails();
-                movieTitle2.Text = selectedMovie.Title;
-            }
-
             if (selectedMovie != null)
             {
                 ratingCombo2.SelectedItem = selectedMovie.UserRating; //sets the rating combo box to be the same as the chosen movie
@@ -235,6 +229,14 @@ namespace WpfApp1
                 ratingCombo2.SelectedIndex = -1; //if no movie is selected it resets the rating combo box
 
             }
+            
+            if (seenMoviesList.SelectedItem == selectedMovie)
+            {
+                movieDetails2.Text = selectedMovie.RatedMovieDetails();
+                movieTitle2.Text = selectedMovie.Title;
+            }
+
+            
             moviePoster2.Source = new BitmapImage(new Uri(selectedMovie.Image)); //sets the poster image to be the same as the chosen movie
         }
 

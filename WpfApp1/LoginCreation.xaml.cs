@@ -45,6 +45,20 @@ namespace WpfApp1
                 MessageBox.Show("Please enter both username and password.");
                 return;
             }
+            else if (!UsernameExists(usernameInput.Text))
+            {
+                MessageBox.Show("Username does not exist. Please try again or create an account.");
+                return;
+            }
+             else
+            {
+                //Check if password matches, for now I will just assume it does
+                //If it does, open main window and close login/register window
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+
 
 
         }
@@ -67,7 +81,7 @@ namespace WpfApp1
         private bool UsernameExists(string username)
         {
             //Check if username already exists in database, return true if it does, false if it doesn't
-            return false; //for now
+            return true; //for now
         }
     }
 }
