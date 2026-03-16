@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace WpfApp1
 {
@@ -41,18 +42,19 @@ namespace WpfApp1
 
 
         #region API Movie Data
+        string apiKey = ConfigurationManager.AppSettings["apiKey"]; //Had to add a reference to System.Configuration in order to use ConfigurationManager 
+        string apiHost = ConfigurationManager.AppSettings["apiHost"]; 
         public async Task API()
         {
             var client = new HttpClient();
+
+            client.DefaultRequestHeaders.Add("X-RapidAPI-Key", apiKey);
+            client.DefaultRequestHeaders.Add("X-RapidAPI-Host", apiHost);
+
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
                 RequestUri = new Uri("https://imdb236.p.rapidapi.com/api/imdb/most-popular-movies"),
-                Headers =
-            {
-            { "x-rapidapi-key", "fc3b3a9015msh458bb3fde05ca24p1becc8jsn9029ffa1b702" },
-            { "x-rapidapi-host", "imdb236.p.rapidapi.com" },
-            },
             };
             try
             {
