@@ -37,6 +37,20 @@ namespace WpfApp1
                 MessageBox.Show("Please enter both username and password.");
                 return;
             }
+
+            // Ensure the username and password match an existing user in the database
+            if (ValidateLogin(usernameInput.Text, passwordInput.Text))
+            {
+                // Open the main window and close the login/register window
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
+
         }
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
@@ -46,6 +60,31 @@ namespace WpfApp1
                 MessageBox.Show("Please enter both username and password.");
                 return;
             }
+        }
+
+        static bool ValidateLogin(string username, string password)
+        {
+            return true; //for now
+        }
+
+        private void usernameInput_GotFocus(object sender, RoutedEventArgs e)
+        {
+            usernameInput.Text = "";
+        }
+
+        private void usernameInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            usernameInput.Text = "Enter";
+        }
+
+        private void passwordInput_GotFocus(object sender, RoutedEventArgs e)
+        {
+            passwordInput.Text = "";
+        }
+
+        private void passwordInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            passwordInput.Text = "Enter";
         }
     }
 }
