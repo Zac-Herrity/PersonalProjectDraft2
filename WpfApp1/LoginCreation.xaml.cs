@@ -32,29 +32,29 @@ namespace WpfApp1
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
+            /*Need to do the following
+             * - Check if username exists in database
+             * - If it does, check if password matches
+             * - If either of those checks fail, show error message
+             * - If it does, open main window and close login/register window when button is clicked
+             */
+
             if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
             {
                 MessageBox.Show("Please enter both username and password.");
                 return;
-            }
-
-            // Ensure the username and password match an existing user in the database
-            if (ValidateLogin(usernameInput.Text, passwordInput.Text))
-            {
-                // Open the main window and close the login/register window
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password.");
             }
 
         }
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
+            /*Need to do the following
+             * - Check if username already exists in database
+             * - If it doesn't, create new user object and add to database
+             * - If it does, show error message
+             * - If successful, open main window and close login/register window when button is clicked
+             */
             if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
             {
                 MessageBox.Show("Please enter both username and password.");
@@ -62,29 +62,7 @@ namespace WpfApp1
             }
         }
 
-        static bool ValidateLogin(string username, string password)
-        {
-            return true; //for now
-        }
 
-        private void usernameInput_GotFocus(object sender, RoutedEventArgs e)
-        {
-            usernameInput.Text = "";
-        }
 
-        private void usernameInput_LostFocus(object sender, RoutedEventArgs e)
-        {
-            usernameInput.Text = "Enter";
-        }
-
-        private void passwordInput_GotFocus(object sender, RoutedEventArgs e)
-        {
-            passwordInput.Text = "";
-        }
-
-        private void passwordInput_LostFocus(object sender, RoutedEventArgs e)
-        {
-            passwordInput.Text = "Enter";
-        }
     }
 }

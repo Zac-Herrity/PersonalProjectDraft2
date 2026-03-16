@@ -9,9 +9,9 @@
     <Grid>
         <TextBlock x:Name="title" HorizontalAlignment="Center" Margin="0,28,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" FontSize="72" FontFamily="Bell MT"/>
         <TextBlock x:Name="usernameBlock" HorizontalAlignment="Center" Margin="0,126,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" FontWeight="Bold"/>
-        <TextBox x:Name="usernameInput" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Enter" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,174,0,0" GotFocus="usernameInput_GotFocus" LostFocus="usernameInput_LostFocus"/>
+        <TextBox x:Name="usernameInput" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,174,0,0"/>
         <TextBlock x:Name="passwordBlock" HorizontalAlignment="Center" Margin="0,217,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" FontWeight="Bold"/>
-        <TextBox x:Name="passwordInput" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Enter" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,264,0,0" GotFocus="passwordInput_GotFocus" LostFocus="passwordInput_LostFocus"/>
+        <TextBox x:Name="passwordInput" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,264,0,0"/>
         <Button x:Name="loginBtn" Content="Login" HorizontalAlignment="Left" Margin="281,320,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" Click="loginBtn_Click"/>
         <Button x:Name="createBtn" Content="Create Account" HorizontalAlignment="Left" Margin="363,320,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" Click="createBtn_Click"/>
 
