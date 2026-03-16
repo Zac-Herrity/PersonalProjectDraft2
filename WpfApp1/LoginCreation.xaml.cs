@@ -19,9 +19,33 @@ namespace WpfApp1
     /// </summary>
     public partial class LoginCreation : Window
     {
+        /*To do
+         * - Create user class object from inputted username / password (Ensure it's not been taken)
+         * - Add user to database
+         * - Ensure login works too
+         * - Both login and register if successful should open the main window and close the login/register window
+         */
         public LoginCreation()
         {
             InitializeComponent();
+        }
+
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
+            {
+                MessageBox.Show("Please enter both username and password.");
+                return;
+            }
+        }
+
+        private void createBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
+            {
+                MessageBox.Show("Please enter both username and password.");
+                return;
+            }
         }
     }
 }
