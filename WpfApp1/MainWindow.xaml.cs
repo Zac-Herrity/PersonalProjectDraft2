@@ -74,9 +74,13 @@ namespace WpfApp1
                         string contentRating = m.contentRating;
                         string releaseDate = m.releaseDate;
                         string genreString = m.genres[0].Replace("-", ""); //removes the hyphen from genre string to match api genre
-                        Genre genre = (Genre)Enum.Parse(typeof(Genre), m.genres[0]); //takes the first genre
-                        
-                        
+                        if (!Enum.TryParse(genreString, true, out Genre genre)) //tries to parse the genre string into a Genre enum value, if it fails it defaults to Genre.Other
+                        {
+                            genre = Genre.Drama;
+                            //fallback if API returns an unrecognised genre
+                        }
+
+
                         int? runtimeMinutes = m.runtimeMinutes;
                         double? averageRating = m.averageRating; //the ? is for nullable types, as some movies may not have a rating
 
