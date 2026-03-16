@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace WpfApp1
 {
@@ -45,6 +46,7 @@ namespace WpfApp1
                 return;
             }
 
+
         }
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
@@ -62,7 +64,10 @@ namespace WpfApp1
             }
         }
 
-
-
+        private bool UsernameExists(string username)
+        {
+            //Check if username already exists in database, return true if it does, false if it doesn't
+            return false; //for now
+        }
     }
 }
