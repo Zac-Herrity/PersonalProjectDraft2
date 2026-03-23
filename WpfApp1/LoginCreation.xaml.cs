@@ -20,11 +20,10 @@ namespace WpfApp1
     /// </summary>
     public partial class LoginCreation : Window
     {
-        /*To do
-         * - Create user class object from inputted username / password (Ensure it's not been taken)
-         * - Add user to database
-         * - Ensure login works too
-         * - Both login and register if successful should open the main window and close the login/register window
+        /*
+         * 
+         * NOTE - ADD HASHING TO PASSWORD
+         * 
          */
         public LoginCreation()
         {
@@ -38,28 +37,28 @@ namespace WpfApp1
                 MessageBox.Show("Please enter both username and password.");
                 return;
             }
-            else if (!UsernameExists(usernameInput.Text))
+            else
             {
-                MessageBox.Show("Username does not exist. Please try again or create an account.");
-                return;
-            }
-             else
-            {
-                //Check if password matches, for now I will just assume it does
-                //If it does, open main window and close login/register window
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                Database db = new Database();
+                bool isValid = db.UserValidation(usernameInput.Text, passwordInput.Text);
+                if (isValid)
+                {
+                    MessageBox.Show("Login successful!");
+                    new User { Username = usernameInput.Text, Password = passwordInput.Text }; 
+                    MainWindow mainWindow = new MainWindow(); 
+                    mainWindow.Show();
+                    this.Close(); //Close the login window
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password. Please try again.");
+                }
             }
         }
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
-            {
-                MessageBox.Show("Please enter both username and password.");
-                return;
-            }
+            
         }
     }
 }

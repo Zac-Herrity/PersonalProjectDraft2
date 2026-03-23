@@ -12,7 +12,7 @@ namespace WpfApp1
         //will also contain seen movies and rated movies per user
 
         //Properties
-        public string UserID { get; set; }
+        public int UserID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public bool LoggedIn { get; set; }
@@ -22,12 +22,17 @@ namespace WpfApp1
         public virtual Movie Movie { get; set; } //Navigation property for the Movie class
 
         //Constructor
-        public User(string UserID, string Username, string Password) 
+        public User(int UserID, string Username, string Password) 
         {
             this.UserID = UserID;
             this.Username = Username;
             this.Password = Password;
         }
+        public User()
+        {
+          
+        }
+        
 
 
 
