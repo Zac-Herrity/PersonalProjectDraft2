@@ -32,14 +32,7 @@ namespace WpfApp1
         }
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
-        {
-            /*Need to do the following
-             * - Check if username exists in database
-             * - If it does, check if password matches
-             * - If either of those checks fail, show error message
-             * - If it does, open main window and close login/register window when button is clicked
-             */
-
+        { 
             if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
             {
                 MessageBox.Show("Please enter both username and password.");
@@ -58,29 +51,15 @@ namespace WpfApp1
                 mainWindow.Show();
                 this.Close();
             }
-
-
-
         }
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
-            /*Need to do the following
-             * - Check if username already exists in database
-             * - If it doesn't, create new user object and add to database
-             * - If it does, show error message
-             * - If successful, open main window and close login/register window when button is clicked
-             */
             if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
             {
                 MessageBox.Show("Please enter both username and password.");
                 return;
             }
-        }
-
-        private bool UsernameExists(string username)
-        {
-            
         }
     }
 }
