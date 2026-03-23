@@ -17,6 +17,7 @@ namespace WpfApp1
                 var command = new System.Data.SqlClient.SqlCommand("SELECT COUNT(*) FROM Users WHERE Username = @username AND Password = @password", connection);
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@loggedIn", true);
                 int result = (int)command.ExecuteScalar(); //scalar means it will return only one value
                 return result > 0; //returns true if greater than 0
 
@@ -29,9 +30,10 @@ namespace WpfApp1
             using (var connection = new System.Data.SqlClient.SqlConnection(connectionString))
             {
                 connection.Open();
-                var command = new System.Data.SqlClient.SqlCommand("INSERT INTO Users (Username, Password) VALUES (@username, @password)", connection);
+                var command = new System.Data.SqlClient.SqlCommand("INSERT INTO Users (Username, Password, LoggedIn) VALUES (@username, @password, @loggedIn)", connection);
                 command.Parameters.AddWithValue("@username", username);
                 command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@loggedIn", false);
                 int result = command.ExecuteNonQuery(); //nonquery means it will return the number of rows affected
                 return result > 0; //returns true if greater than 0
             }

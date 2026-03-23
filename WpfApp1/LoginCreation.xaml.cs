@@ -58,7 +58,24 @@ namespace WpfApp1
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
+            {
+                MessageBox.Show("Please enter both username and password.");
+                return;
+            }
+            else
+            {
+                Database db = new Database();
+                bool isCreated = db.CreateUser(usernameInput.Text, passwordInput.Text);
+                if (isCreated)
+                {
+                    MessageBox.Show("Account created successfully! You can now log in.");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to create account. Please try again.");
+                }
+            }
         }
     }
 }
