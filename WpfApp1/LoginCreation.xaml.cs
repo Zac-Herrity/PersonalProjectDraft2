@@ -72,5 +72,10 @@ namespace WpfApp1
                 }
             }
         }
+
+        private void showPassword_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
