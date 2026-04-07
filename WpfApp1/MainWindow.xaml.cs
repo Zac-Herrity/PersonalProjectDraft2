@@ -26,21 +26,6 @@ namespace WpfApp1
     
     public partial class MainWindow : Window
     {
-        /*Things to do:
-         * Fill the List of Movies with data from an API 
-         * Look through API, what endpoints exist? Can I add more details to the Movie class based on what data I can get from the API? More features?
-         * 
-         * Sort out Genre
-         * 
-         * Create account classes, login / registration and store user data in db
-         * 
-         * IMPROVE UI - LOCK IN, pick a colour scheme, make it look nice
-         * 
-         * Add a home page / login
-         * Add a random movie generator page
-         */
-
-
         #region API Movie Data
         string apiKey = ConfigurationManager.AppSettings["apiKey"]; //Had to add a reference to System.Configuration in order to use ConfigurationManager 
         string apiHost = ConfigurationManager.AppSettings["apiHost"]; 
@@ -295,17 +280,28 @@ namespace WpfApp1
             MainTabControl.SelectedIndex = 0;
         }
 
-
-
-
-
-
-
-
-
         #endregion
 
-
+        #region Logout
+        private void logoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Database db = new Database();
+            db.LogOut(currentUsername); 
+            LoginCreation loginWindow = new LoginCreation();
+            loginWindow.Show();
+            this.Close();
+            //Logs the user out in the database, then opens the login window and closes the main window
+        }
+        protected override void OnClosed(EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(currentUsername))
+            {
+                Database db = new Database();
+                db.LogOut(currentUsername); 
+                //Ensures that the user is logged out in the database when the window is closed
+            }
+        }
+        #endregion
     }
 }
 

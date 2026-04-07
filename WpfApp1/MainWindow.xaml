@@ -44,6 +44,7 @@
                     <Button x:Name="homeBtnList" Content="List Of Movies" HorizontalAlignment="Left" Height="60" Margin="566,60,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnList_Click"/>
                     <Button x:Name="homeBtnSeen" Content="Seen Movies" HorizontalAlignment="Left" Margin="566,160,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnSeen_Click"/>
                     <Button x:Name="homeBtnRandom" Content="Surprise Me!" HorizontalAlignment="Left" Margin="566,260,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnRandom_Click"/>
+                    <Button x:Name="logoutBtn" Content="Logout" Width="100" Height="30" Click="logoutBtn_Click" Grid.Column="1" Margin="576,336,34,40"/>
 
                 </Grid>
             </TabItem>
