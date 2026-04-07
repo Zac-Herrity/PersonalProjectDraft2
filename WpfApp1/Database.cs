@@ -19,7 +19,7 @@ namespace WpfApp1
                 var result = command.ExecuteScalar(); //scalar means it will return only one value
                 if (result != null)
                 {
-                    string storedHashPassword = result.ToString(); 
+                    string storedHashPassword = result.ToString();
                     return BCrypt.Net.BCrypt.Verify(password, storedHashPassword); //verify the password using bcrypt
                     //if password is found,return
                 }
@@ -55,6 +55,23 @@ namespace WpfApp1
                 command.Parameters.AddWithValue("@rating", rating);
                 command.ExecuteNonQuery(); //nonquery means it will return the number of rows affected
             }
+        }
+
+        public void LoggedIn(string username, bool loggedIn)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand("UPDATE Users SET LoggedIn = @loggedIn WHERE Username = @username", connection);
+                //updates logged in status of user in db
+                command.Parameters.AddWithValue("@loggedIn", loggedIn);
+                command.Parameters.AddWithValue("@username", username);
+                command.ExecuteNonQuery();
+            }
+        }
+        public void LogOut(string username)
+        {
+            LoggedIn(username, false); //calls the logged in method to set logged in status to false
         }
     }
 }

@@ -38,11 +38,12 @@ namespace WpfApp1
                 bool isValid = db.UserValidation(usernameInput.Text, passwordTextBox.Text);
                 if (isValid)
                 {
-                    MessageBox.Show("Login successful!");
-                    new User { Username = usernameInput.Text, Password = passwordTextBox.Text }; 
-                    MainWindow mainWindow = new MainWindow(); 
+                   db.LoggedIn(usernameInput.Text, true); //Set the user as logged in in the database
+                    MessageBox.Show("Login successful! Welcome, " + usernameInput.Text + "!");
+                    MainWindow mainWindow = new MainWindow(usernameInput.Text);
+                    //passes username to main window so it can be used for saving ratings and displaying seen movies
                     mainWindow.Show();
-                    this.Close(); //Close the login window
+                    this.Close();//Close the login window after successful login
                 }
                 else
                 {

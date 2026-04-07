@@ -106,10 +106,13 @@ namespace WpfApp1
         private List<Movie> movieList = new List<Movie>(); // Main list of movies to be displayed in the app
         private List<Movie> seenMovies = new List<Movie>(); // List of movies that the user has marked as seen, will be displayed in a separate tab
 
-        public MainWindow()
+        private string currentUsername; 
+        //constructor, stores username for saving ratings
+        public MainWindow(string username)
         {
             InitializeComponent();
-
+            this.currentUsername = username; 
+            //passed from login
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
