@@ -12,7 +12,7 @@
         <TextBox x:Name="usernameInput" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,174,0,0"/>
         <TextBlock x:Name="passwordBlock" HorizontalAlignment="Center" Margin="0,217,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" FontWeight="Bold"/>
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,264,0,0" PasswordChanged="passwordbox_PasswordChanged"/>
-        <TextBox x:Name="passwordInput" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,264,0,0" Visibility="Collapsed" TextChanged="passwordInput_TextChanged"/>
+        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,264,0,0" Visibility="Collapsed"/>
         <CheckBox x:Name="showPassword" Content="Show Password" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="16" Checked="showPassword_Checked" Unchecked="showPassword_Unchecked"/>
         <Button x:Name="loginBtn" Content="Login" HorizontalAlignment="Left" Margin="281,320,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" Click="loginBtn_Click"/>
         <Button x:Name="createBtn" Content="Create Account" HorizontalAlignment="Left" Margin="363,320,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" Click="createBtn_Click"/>

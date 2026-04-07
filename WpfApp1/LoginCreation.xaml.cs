@@ -27,7 +27,7 @@ namespace WpfApp1
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         { 
-            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
+            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordTextBox.Text))
             {
                 MessageBox.Show("Please enter both username and password.");
                 return;
@@ -35,11 +35,11 @@ namespace WpfApp1
             else
             {
                 Database db = new Database();
-                bool isValid = db.UserValidation(usernameInput.Text, passwordInput.Text);
+                bool isValid = db.UserValidation(usernameInput.Text, passwordTextBox.Text);
                 if (isValid)
                 {
                     MessageBox.Show("Login successful!");
-                    new User { Username = usernameInput.Text, Password = passwordInput.Text }; 
+                    new User { Username = usernameInput.Text, Password = passwordTextBox.Text }; 
                     MainWindow mainWindow = new MainWindow(); 
                     mainWindow.Show();
                     this.Close(); //Close the login window
@@ -53,7 +53,7 @@ namespace WpfApp1
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordInput.Text))
+            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordTextBox.Text))
             {
                 MessageBox.Show("Please enter both username and password.");
                 return;
@@ -61,7 +61,7 @@ namespace WpfApp1
             else
             {
                 Database db = new Database();
-                bool isCreated = db.CreateUser(usernameInput.Text, passwordInput.Text);
+                bool isCreated = db.CreateUser(usernameInput.Text, passwordTextBox.Text);
                 if (isCreated)
                 {
                     MessageBox.Show("Account created successfully! You can now log in.");
@@ -73,9 +73,26 @@ namespace WpfApp1
             }
         }
 
+        #region Password Misc
         private void showPassword_Checked(object sender, RoutedEventArgs e)
         {
-
+            passwordTextBox.Text = passwordBox.Password;
+            passwordTextBox.Visibility = Visibility.Visible;
+            passwordBox.Visibility = Visibility.Collapsed;
         }
+        private void showPassword_Unchecked(object sender, RoutedEventArgs e)
+        {
+            passwordBox.Password = passwordTextBox.Text;
+            passwordTextBox.Visibility = Visibility.Collapsed;
+            passwordBox.Visibility = Visibility.Visible;
+        }
+        private void passwordbox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (passwordTextBox.Visibility == Visibility.Visible)
+            {
+                passwordTextBox.Text = passwordBox.Password;
+            }
+        }
+        #endregion
     }
 }
