@@ -86,7 +86,7 @@ namespace WpfApp1
 
 
                         //Creating a new Movie object with the data from the API and adding it to the movieList
-                        Movie newMovie = new Movie(iD, title, image, contentRating, releaseDate, genre, runtimeMinutes ?? 0, averageRating ?? 0);
+                        Movie newMovie = new Movie(0, title, image, contentRating, releaseDate, genre, runtimeMinutes ?? 0, averageRating ?? 0);
                         //the ?? operator is for null coalescing, if runtimeMinutes or averageRating is null it will default to 0
                         movieList.Add(newMovie);
 

@@ -27,7 +27,8 @@ namespace WpfApp1
         //Note - A lot of this is subject to change once I start working with an API to get movie data, but for now this is what I have in mind for the Movie class
 
         //Properties
-        public string MovieID { get; set; }
+        public int MovieID { get; set; }
+        public string MovieIDAPI { get; set; } //This is the ID from the API, will be used to link the movie in the database to the movie in the API
         public string Title { get; set; }
         public string Image { get; set; } 
         public string ContentRating { get; set; }
@@ -47,7 +48,7 @@ namespace WpfApp1
         public int UserRating { get; set; } //Default at -1 (no rating)
 
         //Constructor
-        public Movie(string MovieID, string Title, string Image, string ContentRating, string ReleaseYear, Genre genre, int Runtime, double AverageRating)
+        public Movie(int MovieID, string Title, string Image, string ContentRating, string ReleaseYear, Genre genre, int Runtime, double AverageRating)
         {
             //API constructor, will be used to create movie objects from the API data
             this.MovieID = MovieID;
