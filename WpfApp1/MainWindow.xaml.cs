@@ -195,7 +195,13 @@ namespace WpfApp1
 
             int chosenRating = (int)ratingCombo.SelectedItem; //gets the selected rating from the combo box
             selectedMovie.UserRating = chosenRating; //sets the user rating of the selected movie to the chosen rating
-
+            Database db = new Database();
+            bool saved = db.SaveSeenMovies(currentUsername, selectedMovie); //saves the seen movie to the database
+            if (!saved)
+            {
+                MessageBox.Show("Error saving seen movie to database.");
+                return;
+            }
             movieList.Remove(selectedMovie); //removes the movie from the main movie list
             seenMovies.Add(selectedMovie); //adds the movie to the seen movies list
 

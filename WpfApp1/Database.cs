@@ -73,5 +73,29 @@ namespace WpfApp1
         {
             LoggedIn(username, false); //calls the logged in method to set logged in status to false
         }
+
+        public bool SaveSeenMovies(string username, Movie movie)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand(@"INSERT INTO SeenMovies 
+                (Username, MovieTitle, MovieImage, ContentRating, Genre, Runtime, AverageRating, ReleaseYear, UserRating)
+                VALUES
+                (@username, @movieTitle, @movieImage, @contentRating, @genre, @runtime, @averageRating, @releaseYear, @userRating)",
+                connection);
+                command.Parameters.AddWithValue("@username", username);
+                command.Parameters.AddWithValue("@movieTitle", movie.Title);
+                command.Parameters.AddWithValue("@movieImage", movie.Image ?? "");
+                command.Parameters.AddWithValue("@contentRating", movie.ContentRating ?? "");
+                command.Parameters.AddWithValue("@genre", (int)movie.Genre);
+                command.Parameters.AddWithValue("@runtime", movie.Runtime);
+                command.Parameters.AddWithValue("@averageRating", movie.AverageRating);
+                command.Parameters.AddWithValue("@releaseYear", movie.ReleaseYear ?? "");
+                command.Parameters.AddWithValue("@userRating", movie.UserRating);
+                int result = command.ExecuteNonQuery();
+                return result > 0;
+            }
+        }
     }
 }
