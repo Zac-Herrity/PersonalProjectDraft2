@@ -20,11 +20,6 @@ namespace WpfApp1
     /// </summary>
     public partial class LoginCreation : Window
     {
-        /*
-         * 
-         * NOTE - ADD HASHING TO PASSWORD
-         * 
-         */
         public LoginCreation()
         {
             InitializeComponent();

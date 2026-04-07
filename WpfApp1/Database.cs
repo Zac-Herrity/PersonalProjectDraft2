@@ -14,12 +14,16 @@ namespace WpfApp1
             using (var connection = new System.Data.SqlClient.SqlConnection(connectionString))
             {
                 connection.Open();
-                var command = new System.Data.SqlClient.SqlCommand("SELECT COUNT(*) FROM Users WHERE Username = @username AND Password = @password", connection);
+                var command = new SqlCommand("SELECT password FROM Users WHERE username = @username", connection);
                 command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
-                command.Parameters.AddWithValue("@loggedIn", true);
-                int result = (int)command.ExecuteScalar(); //scalar means it will return only one value
-                return result > 0; //returns true if greater than 0
+                var result = command.ExecuteScalar(); //scalar means it will return only one value
+                if (result != null)
+                {
+                    string storedHashPassword = result.ToString(); 
+                    return BCrypt.Net.BCrypt.Verify(password, storedHashPassword); //verify the password using bcrypt
+                    //if password is found,return
+                }
+                return false; //if username isn't found
 
 
             }
@@ -30,9 +34,10 @@ namespace WpfApp1
             using (var connection = new System.Data.SqlClient.SqlConnection(connectionString))
             {
                 connection.Open();
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); //hash the password using bcrypt
                 var command = new System.Data.SqlClient.SqlCommand("INSERT INTO Users (Username, Password, LoggedIn) VALUES (@username, @password, @loggedIn)", connection);
                 command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@password", hashedPassword);
                 command.Parameters.AddWithValue("@loggedIn", false);
                 int result = command.ExecuteNonQuery(); //nonquery means it will return the number of rows affected
                 return result > 0; //returns true if greater than 0
