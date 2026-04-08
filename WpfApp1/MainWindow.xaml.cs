@@ -125,7 +125,6 @@ namespace WpfApp1
             ratingCombo.Items.Add(3);
             ratingCombo.Items.Add(4);
             ratingCombo.Items.Add(5);
-
             ratingCombo2.Items.Add(1);
             ratingCombo2.Items.Add(2);
             ratingCombo2.Items.Add(3);
