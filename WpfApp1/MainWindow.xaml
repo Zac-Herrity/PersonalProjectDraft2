@@ -8,44 +8,16 @@
         Title="MainWindow" Height="600" Width="1000" MinHeight="500" MinWidth="800" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <TabControl TabStripPlacement="Top" Name="MainTabControl">
-            <TabItem Name="Home" Header="Home" Width="Auto">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="42*"/>
-                        <ColumnDefinition Width="355*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Margin="0,0,200,0" Grid.ColumnSpan="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="10*"/>
-                            <RowDefinition Height="90*"/>
-                        </Grid.RowDefinitions>
-                        <Border BorderBrush="Black" BorderThickness="1" Margin="598,10,1,10" RenderTransformOrigin="0.5,0.5">
-                            <Border.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="-1"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Border.RenderTransform>
-                        </Border>
-                        <Image x:Name="popcorn" Source="https://clipart.info/images/ccovers/1559830190popcorn-bowl-png-clipart-8.png" Width="200" Height="200" Panel.ZIndex="1" Margin="197,67,197,98" Grid.Row="1"/>
-                        <TextBlock x:Name="title" HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" Height="70" Width="178" FontFamily="Bell MT" FontSize="48" FontWeight="Bold" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
-                            <TextBlock.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </TextBlock.RenderTransform>
-                        </TextBlock>
-                    </Grid>
-                    <Button x:Name="homeBtnList" Content="List Of Movies" HorizontalAlignment="Left" Height="60" Margin="566,60,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnList_Click"/>
-                    <Button x:Name="homeBtnSeen" Content="Seen Movies" HorizontalAlignment="Left" Margin="566,160,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnSeen_Click"/>
-                    <Button x:Name="homeBtnRandom" Content="Surprise Me!" HorizontalAlignment="Left" Margin="566,260,0,0" VerticalAlignment="Top" Width="120" Height="60" FontFamily="Bell MT" FontSize="18" Grid.Column="1" Click="homeBtnRandom_Click"/>
-                    <Button x:Name="logoutBtn" Content="Logout" Width="100" Height="30" Click="logoutBtn_Click" Grid.Column="1" Margin="576,336,34,40"/>
-
+            <TabItem Name="Home" Header="Home">
+                <Grid Background="#0F172A">
+                    <TextBlock x:Name="title" Text="Scene It" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" 
+                               FontFamily="Bell MT" FontSize="60" FontWeight="Bold" FontStyle="Italic" Foreground="#F8E7B9"></TextBlock>
+                    <TextBlock x:Name="chooseWhere" Text="Choose where to go!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,130,0,0" FontFamily="Bell MT"
+                               FontSize="24" Foreground="White"></TextBlock>
+                    <Button x:Name="homeBtnList" Content="List Of Movies" Width="220" Height="55" FontSize="24" FontFamily="Bell MT" Background="#D4A017"
+                            Foreground="Black" BorderBrush="#D4A017" Click="homeBtnList_Click"></Button>
+                    <Button x:Name="homeBtnSeen" Content="Seen Movies" Width="220" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"
+                            Margin="0,295,0,0" FontFamily="Bell MT" FontSize="24" Background=""></Button>
                 </Grid>
             </TabItem>
 
