@@ -15,9 +15,14 @@
                     <TextBlock x:Name="chooseWhere" Text="Choose where to go!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,130,0,0" FontFamily="Bell MT"
                                FontSize="24" Foreground="White"></TextBlock>
                     <Button x:Name="homeBtnList" Content="List Of Movies" Width="220" Height="55" FontSize="24" FontFamily="Bell MT" Background="#D4A017"
-                            Foreground="Black" BorderBrush="#D4A017" Click="homeBtnList_Click"></Button>
+                            Margin="0,210,0,0" Foreground="Black" Click="homeBtnList_Click" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
                     <Button x:Name="homeBtnSeen" Content="Seen Movies" Width="220" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"
-                            Margin="0,295,0,0" FontFamily="Bell MT" FontSize="24" Background=""></Button>
+                            Margin="0,280,0,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnSeen_Click"></Button>
+                    <Button x:Name="homeBtnRandom" Content="Surprise Me!" Width="220" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"
+                            Margin="0,350,0,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnRandom_Click"></Button>
+                    <Button x:Name="logoutBtn" Content="Logout" Width="120" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                            Margin="0,0,0,70" FontFamily="Bell MT" FontSize="20" Background="#1E293B" Foreground="White" BorderBrush="#D4A017"
+                            BorderThickness="2" Click="logoutBtn_Click"></Button>
                 </Grid>
             </TabItem>
 
