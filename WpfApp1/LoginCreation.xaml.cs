@@ -26,8 +26,17 @@ namespace WpfApp1
         }
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
-        { 
-            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordTextBox.Text))
+        {
+            string enteredPassword;
+            if (showPassword.IsChecked == true)
+            {
+                enteredPassword = passwordTextBox.Text;
+            }
+            else
+            {
+                enteredPassword = passwordBox.Password;
+            }
+            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(enteredPassword))
             {
                 MessageBox.Show("Please enter both username and password.");
                 return;
@@ -35,7 +44,7 @@ namespace WpfApp1
             else
             {
                 Database db = new Database();
-                bool isValid = db.UserValidation(usernameInput.Text, passwordTextBox.Text);
+                bool isValid = db.UserValidation(usernameInput.Text, enteredPassword);
                 if (isValid)
                 {
                    db.LoggedIn(usernameInput.Text, true); //Set the user as logged in in the database
@@ -54,7 +63,16 @@ namespace WpfApp1
 
         private void createBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(passwordTextBox.Text))
+            string enteredPassword;
+            if (showPassword.IsChecked == true)
+            {
+                enteredPassword = passwordTextBox.Text;
+            }
+            else
+            {
+                enteredPassword = passwordBox.Password;
+            }
+            if (string.IsNullOrEmpty(usernameInput.Text) || string.IsNullOrEmpty(enteredPassword))
             {
                 MessageBox.Show("Please enter both username and password.");
                 return;
@@ -62,7 +80,7 @@ namespace WpfApp1
             else
             {
                 Database db = new Database();
-                bool isCreated = db.CreateUser(usernameInput.Text, passwordTextBox.Text);
+                bool isCreated = db.CreateUser(usernameInput.Text, enteredPassword);
                 if (isCreated)
                 {
                     MessageBox.Show("Account created successfully! You can now log in.");
