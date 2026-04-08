@@ -10,19 +10,23 @@
         <TabControl TabStripPlacement="Top" Name="MainTabControl">
             <TabItem Header="Home">
                 <Grid Background="#0F172A">
-                    <TextBlock x:Name="title" Text="Scene It" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" 
-                               FontFamily="Bell MT" FontSize="60" FontWeight="Bold" FontStyle="Italic" Foreground="#F8E7B9"></TextBlock>
-                    <TextBlock x:Name="chooseWhere" Text="Choose where to go!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,130,0,0" FontFamily="Bell MT"
-                               FontSize="24" Foreground="White"></TextBlock>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51*"/>
+                        <ColumnDefinition Width="446*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="title" Text="Scene It" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="287,50,0,0" 
+                               FontFamily="Bell MT" FontSize="60" FontWeight="Bold" FontStyle="Italic" Foreground="#F8E7B9" Grid.Column="1"></TextBlock>
+                    <TextBlock x:Name="chooseWhere" Text="Choose where to go!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,130,0,0" FontFamily="Bell MT"
+                               FontSize="24" Foreground="White" Grid.Column="1"></TextBlock>
                     <Button x:Name="homeBtnList" Content="List Of Movies" Width="220" Height="55" FontSize="24" FontFamily="Bell MT" Background="#D4A017"
-                            Margin="0,210,0,0" Foreground="Black" Click="homeBtnList_Click" HorizontalAlignment="Center" VerticalAlignment="Top"></Button>
-                    <Button x:Name="homeBtnSeen" Content="Seen Movies" Width="220" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"
-                            Margin="0,280,0,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnSeen_Click"></Button>
-                    <Button x:Name="homeBtnRandom" Content="Surprise Me!" Width="220" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"
-                            Margin="0,350,0,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnRandom_Click"></Button>
-                    <Button x:Name="logoutBtn" Content="Logout" Width="120" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                            Margin="0,0,0,70" FontFamily="Bell MT" FontSize="20" Background="#1E293B" Foreground="White" BorderBrush="#D4A017"
-                            BorderThickness="2" Click="logoutBtn_Click"></Button>
+                            Margin="285,210,0,0" Foreground="Black" Click="homeBtnList_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"></Button>
+                    <Button x:Name="homeBtnSeen" Content="Seen Movies" Width="220" Height="55" HorizontalAlignment="Left" VerticalAlignment="Top"
+                            Margin="285,280,0,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnSeen_Click" Grid.Column="1"></Button>
+                    <Button x:Name="homeBtnRandom" Content="Surprise Me!" Width="220" Height="55" HorizontalAlignment="Left" VerticalAlignment="Top"
+                            Margin="285,350,0,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnRandom_Click" Grid.Column="1"></Button>
+                    <Button x:Name="logoutBtn" Content="Logout" Width="120" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                            Margin="335,0,0,70" FontFamily="Bell MT" FontSize="20" Background="#1E293B" Foreground="White" BorderBrush="#D4A017"
+                            BorderThickness="2" Click="logoutBtn_Click" Grid.Column="1"></Button>
                 </Grid>
             </TabItem>
             <TabItem Header="List Of Movies">
@@ -38,33 +42,33 @@
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="0,0,20,15" VerticalAlignment="Top">
                         <StackPanel Margin="0,0,20,0">
                             <TextBlock x:Name="genreBlock" Text="Genre" Foreground="White" FontFamily="Bell MT" FontSize="20" Margin="0,0,0,6"></TextBlock>
-                            <ComboBox x:Name="genreCombo" Width="130" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" SelectionChanged="genreCombo_SelectionChanged">
+                            <ComboBox x:Name="genreCombo" Width="130" Height="30" Background="#1E293B" Foreground="#1E293B" FontWeight="Bold" BorderBrush="#D4A017" SelectionChanged="genreCombo_SelectionChanged">
                                 <ComboBox.ItemContainerStyle>
                                     <Style TargetType="ComboBoxItem">
                                         <Setter Property="Background" Value="#1E293B"/>
-                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="Foreground" Value="White"/>
                                     </Style>
                                 </ComboBox.ItemContainerStyle>
                             </ComboBox>
                         </StackPanel>
                         <StackPanel Margin="0,0,20,0">
                             <TextBlock x:Name="sortByBlock" Text="Sort By" Foreground="White" FontFamily="Bell MT" FontSize="20" Margin="0,0,0,6"></TextBlock>
-                            <ComboBox x:Name="sortByCombo" Width="130" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" SelectionChanged="sortByCombo_SelectionChanged">
+                            <ComboBox x:Name="sortByCombo" Width="130" Height="30" Background="#1E293B" Foreground="#1E293B" FontWeight="Bold" BorderBrush="#D4A017" SelectionChanged="sortByCombo_SelectionChanged">
                                 <ComboBox.ItemContainerStyle>
                                     <Style TargetType="ComboBoxItem">
                                         <Setter Property="Background" Value="#1E293B"/>
-                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="Foreground" Value="White"/>
                                     </Style>
                                 </ComboBox.ItemContainerStyle>
                             </ComboBox>
                         </StackPanel>
                         <StackPanel>
                             <TextBlock x:Name="ratingText" Text="1-5*" Foreground="White" FontFamily="Bell MT" FontSize="20" TextAlignment="Center" Margin="0,0,0,6"></TextBlock>
-                            <ComboBox x:Name="ratingCombo" Width="100" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017">
+                            <ComboBox x:Name="ratingCombo" Width="100" Height="30" Background="#1E293B" Foreground="#1E293B" FontWeight="Bold" BorderBrush="#D4A017">
                                 <ComboBox.ItemContainerStyle>
                                     <Style TargetType="ComboBoxItem">
                                         <Setter Property="Background" Value="#1E293B"/>
-                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="Foreground" Value="White"/>
                                     </Style>
                                 </ComboBox.ItemContainerStyle>
                             </ComboBox>
@@ -124,12 +128,12 @@
                             <Image x:Name="moviePoster2" Grid.Row="1" Width="170" Height="170" Stretch="UniformToFill" Margin="0,0,0,20"></Image>
                             <TextBlock x:Name="ratingText2" Grid.Row="2" Text="Change Review" Foreground="White" FontFamily="Bell MT" FontSize="20"
                                        TextAlignment="Center" Margin="0,5,0,5"></TextBlock>
-                            <ComboBox x:Name="ratingCombo2" Grid.Row="2" Width="120" Height="30" HorizontalAlignment="Center" Background="#1E293B" Foreground="White" 
+                            <ComboBox x:Name="ratingCombo2" Grid.Row="2" Width="120" Height="30" HorizontalAlignment="Center" Background="#1E293B" Foreground="#1E293B" FontWeight="Bold" 
                                       BorderBrush="#D4A017" SelectionChanged="ratingCombo2_SelectionChanged" Margin="0,40,0,5">
                                 <ComboBox.ItemContainerStyle>
                                     <Style TargetType="ComboBoxItem">
                                         <Setter Property="Background" Value="#1E293B"/>
-                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="Foreground" Value="White"/>
                                     </Style>
                                 </ComboBox.ItemContainerStyle>
                             </ComboBox>
