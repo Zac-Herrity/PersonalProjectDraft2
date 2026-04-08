@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="LoginCreation" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <TextBlock x:Name="title" HorizontalAlignment="Center" Margin="0,28,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" FontSize="72" FontFamily="Bell MT"/>
-        <TextBlock x:Name="usernameBlock" HorizontalAlignment="Center" Margin="0,126,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" FontWeight="Bold"/>
-        <TextBox x:Name="usernameInput" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,174,0,0"/>
-        <TextBlock x:Name="passwordBlock" HorizontalAlignment="Center" Margin="0,217,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" FontWeight="Bold"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,264,0,0" PasswordChanged="passwordbox_PasswordChanged"/>
-        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,264,0,0" Visibility="Collapsed"/>
-        <CheckBox x:Name="showPassword" Content="Show Password" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="16" Checked="showPassword_Checked" Unchecked="showPassword_Unchecked"/>
-        <Button x:Name="loginBtn" Content="Login" HorizontalAlignment="Left" Margin="281,320,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" Click="loginBtn_Click"/>
-        <Button x:Name="createBtn" Content="Create Account" HorizontalAlignment="Left" Margin="363,320,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Bell MT" Click="createBtn_Click"/>
+        Title="LoginCreation" Height="500" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid Background="#0F172A">
+        <TextBlock x:Name="title" HorizontalAlignment="Center" Margin="0,40,0,0" TextWrapping="Wrap" Text="Scene It" VerticalAlignment="Top" FontSize="64" Foreground="#F8E7B9" FontFamily="Bell MT"/>
+        <TextBlock x:Name="usernameBlock" HorizontalAlignment="Center" Margin="0,140,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" FontSize="20" Foreground="White" FontFamily="Bell MT" FontWeight="Bold"/>
+        <TextBox x:Name="usernameInput" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="35" FontSize="16" FontFamily="Bell MT" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" BorderThickness="2" Margin="0,180,0,0"/>
+        <TextBlock x:Name="passwordBlock" HorizontalAlignment="Center" Margin="0,230,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="20" Foreground="White" FontFamily="Bell MT" FontWeight="Bold"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="220" Height="35" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" BorderThickness="2" FontFamily="Bell MT" FontSize="16" Margin="0,270,0,0" PasswordChanged="passwordbox_PasswordChanged"/>
+        <TextBox x:Name="passwordTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="220" Height="35" FontSize="16" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" BorderThickness="2" FontFamily="Bell MT" Margin="0,270,0,0" Visibility="Collapsed"/>
+        <CheckBox x:Name="showPassword" Content="Show Password" HorizontalAlignment="Center" Margin="0,310,0,0" VerticalAlignment="Top" Foreground="#CBD5E1" FontFamily="Bell MT" FontSize="16" Checked="showPassword_Checked" Unchecked="showPassword_Unchecked"/>
+        <Button x:Name="loginBtn" Content="Login" HorizontalAlignment="Center" Margin="-150,360,0,0" Width="120" Height="40" Background="#D4A017" Foreground="Black" VerticalAlignment="Top" FontSize="20" FontFamily="Bell MT" Click="loginBtn_Click"/>
+        <Button x:Name="createBtn" Content="Create Account" HorizontalAlignment="Center" Margin="150,360,0,0" VerticalAlignment="Top" Width="140" Height="40" FontSize="20" Background="#D4A017" Foreground="Black" FontFamily="Bell MT" Click="createBtn_Click"/>
 
     </Grid>
 </Window>
