@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace WpfApp1
@@ -74,7 +75,7 @@ namespace WpfApp1
             LoggedIn(username, false); //calls the logged in method to set logged in status to false
         }
 
-        public bool SaveSeenMovies(string username, Movie movie)
+        public bool SaveSeenMovies(string username, Movie movie) //saves the movie that the user has seen to the db
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -96,6 +97,31 @@ namespace WpfApp1
                 int result = command.ExecuteNonQuery();
                 return result > 0;
             }
+        }
+
+        public List<Movie> LoadSeenMovies(string username) //loads the movies that the user has seen from the db
+        {
+            List<Movie> seenMovies = new List<Movie>();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                var command = new SqlCommand(@"SELECT MovieTitle, MovieImage, ContentRating, Genre, Runtime, AverageRating, ReleaseYear, UserRating
+                                            FROM SeenMovies
+                                            WHERE Username = @username", connection);
+                command.Parameters.AddWithValue("@username", username); //gets rows from table where username matches the logged in user
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read()) //loops through the rows returned by the query
+                    {
+                        Movie movie = new Movie(0, reader["MovieTitle"].ToString(), reader["MovieImage"].ToString(), reader["ContentRating"].ToString(), reader["ReleaseYear"].ToString(),
+                            (Genre)reader["Genre"], (int)reader["Runtime"], (double)reader["AverageRating"]); 
+                        movie.UserRating = (int)reader["UserRating"]; //sets the user rating of the movie to the value in the db
+                        seenMovies.Add(movie);
+                    }
+                }
+            }
+            return seenMovies;
         }
     }
 }
