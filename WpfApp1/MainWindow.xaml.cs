@@ -273,7 +273,15 @@ namespace WpfApp1
 
         private void homeBtnRandom_Click(object sender, RoutedEventArgs e)
         {
-            //Yet to be implemented
+            if (movieList == null)
+            {
+                MessageBox.Show("Movie list is not loaded yet. Please try again in a moment.");
+            }
+            Random rand = new Random();
+            int randomIndex = rand.Next(movieList.Count); //gets a random index from the movie list
+            MainTabControl.SelectedIndex = 1; 
+            movieListBox.SelectedItem = movieList[randomIndex]; //selects a random movie from the movie list and displays it in the main tab
+            movieListBox.ScrollIntoView(movieList[randomIndex]); //scrolls the listbox to the randomly selected movie
         }
 
         private void exit1_Click(object sender, RoutedEventArgs e)
