@@ -25,7 +25,6 @@
                             BorderThickness="2" Click="logoutBtn_Click"></Button>
                 </Grid>
             </TabItem>
-
             <TabItem Name="ListOfMovies" Header="List Of Movies" Width="Auto">
                 <Grid>
                     <Grid.ColumnDefinitions>
