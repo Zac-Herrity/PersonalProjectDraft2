@@ -100,9 +100,12 @@ namespace WpfApp1
             //passed from login
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-             API(); // Call the API method to get movie data when the window loads
+            await API(); // Call the API method to get movie data when the window loads
+            Database db = new Database();
+            seenMovies = db.LoadSeenMovies(currentUsername);
+            seenMoviesList.ItemsSource = seenMovies;
             movieListBox.ItemsSource = movieList; // Bind the movie list to the ListBox
             genreCombo.ItemsSource = Enum.GetValues(typeof(Genre)); // Bind the Genre enum values to the ComboBox for filtering
 
