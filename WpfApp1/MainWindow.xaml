@@ -38,15 +38,36 @@
                     <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="0,0,20,15" VerticalAlignment="Top">
                         <StackPanel Margin="0,0,20,0">
                             <TextBlock x:Name="genreBlock" Text="Genre" Foreground="White" FontFamily="Bell MT" FontSize="20" Margin="0,0,0,6"></TextBlock>
-                            <ComboBox x:Name="genreCombo" Width="130" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" SelectionChanged="genreCombo_SelectionChanged"></ComboBox>
+                            <ComboBox x:Name="genreCombo" Width="130" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" SelectionChanged="genreCombo_SelectionChanged">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Background" Value="#1E293B"/>
+                                        <Setter Property="Background" Value="White" />
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
                         </StackPanel>
                         <StackPanel Margin="0,0,20,0">
                             <TextBlock x:Name="sortByBlock" Text="Sort By" Foreground="White" FontFamily="Bell MT" FontSize="20" Margin="0,0,0,6"></TextBlock>
-                            <ComboBox x:Name="sortByCombo" Width="130" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" SelectionChanged="sortByCombo_SelectionChanged"></ComboBox>
+                            <ComboBox x:Name="sortByCombo" Width="130" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017" SelectionChanged="sortByCombo_SelectionChanged">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Background" Value="#1E293B"/>
+                                        <Setter Property="Background" Value="White" />
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
                         </StackPanel>
                         <StackPanel>
                             <TextBlock x:Name="ratingText" Text="1-5*" Foreground="White" FontFamily="Bell MT" FontSize="20" TextAlignment="Center" Margin="0,0,0,6"></TextBlock>
-                            <ComboBox x:Name="ratingCombo" Width="100" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017"></ComboBox>
+                            <ComboBox x:Name="ratingCombo" Width="100" Height="30" Background="#1E293B" Foreground="White" BorderBrush="#D4A017">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Background" Value="#1E293B"/>
+                                        <Setter Property="Background" Value="White" />
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
                         </StackPanel>
                         <Button x:Name="seenItBtn" Content="Scene It!" Width="100" Height="50" Margin="25,28,0,0" FontFamily="Bell MT" FontSize="20"
                                 Background="#D4A017" Foreground="Black" Click="seenItBtn_Click"></Button>
@@ -63,7 +84,7 @@
                             </Grid.RowDefinitions>
                             <Button x:Name="exit1" Content="X" Width="35" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16"
                                     Background="#D4A017" Foreground="Black" Click="exit1_Click"></Button>
-                            <TextBlock x:Name="movieTitle1" TextWrapping="Wrap" Grid.Row="0" Margin="0,40,0,15" TextAlignment="Center" Foreground="#F8E7B9"
+                            <TextBlock x:Name="movieTitle1" TextWrapping="Wrap" HorizontalAlignment="Stretch" Grid.Row="0" Margin="0,40,0,15" TextAlignment="Center" Foreground="#F8E7B9"
                                        FontFamily="Bell MT" FontSize="28" FontWeight="Bold"></TextBlock>
                             <Image x:Name="poster1" Grid.Row="1" Width="170" Height="170" Stretch="UniformToFill" Margin="0,0,0,20"></Image>
                             <TextBox x:Name="movieDetails1" Grid.Row="2" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Auto"
@@ -74,17 +95,49 @@
                 </Grid>
             </TabItem>
 
-            <TabItem >
-                <Grid>
-                    <Image x:Name="moviePoster2" Source="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" HorizontalAlignment="Left" Height="150" Margin="588,72,0,0" VerticalAlignment="Top" Width="150"/>
-                    <TextBlock x:Name="movieTitle2" HorizontalAlignment="Left" Margin="537,20,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="24" Width="247" TextAlignment="Center"/>
-                    <TextBox x:Name="movieDetails2" HorizontalAlignment="Left" Margin="537,236,0,0" TextWrapping="Wrap" Text="movie details here" VerticalAlignment="Top" Width="253" Height="137" FontFamily="Bell MT" FontSize="18"/>
-                    <ComboBox x:Name="ratingCombo2" HorizontalAlignment="Center" Margin="0,236,0,0" VerticalAlignment="Top" Width="120" FontFamily="Bell MT" SelectionChanged="ratingCombo2_SelectionChanged"/>
-                    <TextBlock x:Name="ratingText2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Change Review" TextAlignment="Center" VerticalAlignment="Top" Height="43" Width="120" FontFamily="Bell MT" FontSize="20" Margin="0,178,0,0"/>
-                    <ListBox x:Name="seenMoviesList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="22,118,476,61" SelectionChanged="seenMoviesList_SelectionChanged"/>
-                    <TextBlock x:Name="seenMoviesText" HorizontalAlignment="Left" Margin="80,55,0,0" TextWrapping="Wrap" Text="Seen Movies" VerticalAlignment="Top" FontFamily="Bell MT" FontSize="36"/>
-                    <Button x:Name="exit2" Content="X" HorizontalAlignment="Left" Margin="753,-1,0,0" VerticalAlignment="Top" Height="21" Width="31" FontSize="16" Click="exit2_Click"/>
-
+            <TabItem Header="Seen Movies">
+                <Grid Background="#0F172A">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="seenMoviesText" Text="Seen Movies" Grid.Row="0" Grid.Column="0" Margin="10,0,0,10" Foreground="#F8E7B9"
+                               FontFamily="Bell MT" FontSize="40"></TextBlock>
+                    <ListBox x:Name="seenMoviesList" Grid.Row="1" Grid.Column="0" Margin="0,0,20,0" Background="#1E293B" Foreground="White" BorderBrush="#D4A017"
+                             BorderThickness="2" FontSize="16" SelectionChanged="seenMoviesList_SelectionChanged"></ListBox>
+                    <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Background="#162033" BorderBrush="#D4A017" BorderThickness="2" CornerRadius="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Button x:Name="exit2" Content="X" Width="35" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="16"
+                                    Background="#D4A017" Foreground="Black" Click="exit2_Click"></Button>
+                            <TextBlock x:Name="movieTitle2" Grid.Row="0" Margin="0,40,0,15" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch"
+                                       Foreground="#F8E7B9" FontFamily="Bell MT" FontSize="26" FontWeight="Bold"></TextBlock>
+                            <Image x:Name="moviePoster2" Grid.Row="1" Width="170" Height="170" Stretch="UniformToFill" Margin="0,0,0,20"></Image>
+                            <TextBlock x:Name="ratingText2" Grid.Row="2" Text="Change Review" Foreground="White" FontFamily="Bell MT" FontSize="20"
+                                       TextAlignment="Center" Margin="0,5,0,5"></TextBlock>
+                            <ComboBox x:Name="ratingCombo2" Grid.Row="2" Width="120" Height="30" HorizontalAlignment="Center" Background="#1E293B" Foreground="White" 
+                                      BorderBrush="#D4A017" SelectionChanged="ratingCombo2_SelectionChanged" Margin="0,40,0,5">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style TargetType="ComboBoxItem">
+                                        <Setter Property="Background" Value="#1E293B"/>
+                                        <Setter Property="Background" Value="White" />
+                                    </Style>
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
+                            <TextBox x:Name="movieDetails2" Grid.Row="3" TextWrapping="Wrap" IsReadOnly="True" VerticalScrollBarVisibility="Auto"
+                                     Background="#1E293B" Foreground="White" BorderBrush="#D4A017" BorderThickness="2" FontFamily="Bell MT"
+                                     FontSize="20"></TextBox>
+                        </Grid>
+                    </Border>
                 </Grid>
             </TabItem>
         </TabControl>
