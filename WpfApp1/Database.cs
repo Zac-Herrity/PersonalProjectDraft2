@@ -6,8 +6,6 @@ namespace WpfApp1
 {
     public class Database
     {
-        //Class is to store db methods and connection string
-
         //connection string for local db (copied from db properties)
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SceneItData;Integrated Security=True;";
         public bool UserValidation(string username, string password)

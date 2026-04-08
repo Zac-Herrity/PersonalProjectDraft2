@@ -138,10 +138,8 @@ namespace WpfApp1
             {
                 movieDetails1.Text = selectedMovie.GetMovieDetails();
                 movieTitle1.Text = selectedMovie.Title;
-
-                //Poster
                 poster1.Source = new BitmapImage(new Uri(selectedMovie.Image));
-                poster1.Height = 150; //sets the height of the poster image, this is necessary as the default height is 0 and it needs to be set to something in order to be visible
+                poster1.Height = 150; 
             }
         }
         private void genreCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -152,7 +150,7 @@ namespace WpfApp1
         {
             FilterSort(); // Call the method to filter and sort the movie list whenever the sorting selection changes
         }
-        private void FilterSort() //Method is for 
+        private void FilterSort()  
         {
             List<Movie> genreList = new List<Movie>(movieList);
             if (genreCombo.SelectedItem != null)

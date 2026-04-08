@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    public enum Genre //Will amend this when I found out which genre is useless
+    public enum Genre
     {
         Drama,
         Documentary,
@@ -22,13 +22,9 @@ namespace WpfApp1
     }
     public class Movie
     {
-        //Movie class with properties for Title, Genre, Director and Release Year
-
-        //Note - A lot of this is subject to change once I start working with an API to get movie data, but for now this is what I have in mind for the Movie class
-
         //Properties
         public int MovieID { get; set; }
-        public string MovieIDAPI { get; set; } //This is the ID from the API, will be used to link the movie in the database to the movie in the API
+        public string MovieIDAPI { get; set; } //This is the ID from the API
         public string Title { get; set; }
         public string Image { get; set; } 
         public string ContentRating { get; set; }
@@ -38,13 +34,6 @@ namespace WpfApp1
         public double AverageRating { get; set; } 
         public string ReleaseYear { get; set; } //Using string as some movies only have release year in API
         public virtual List<User> Users { get; set; } //Navigation property for the User class, will link to the UserID in user class
-
-        //Will try and add these later after everything else is working:
-        public string Director { get; set; } 
-        public string Description { get; set; }
-        // Cast + Locations, budget?
-
-
         public int UserRating { get; set; } //Default at -1 (no rating)
 
         //Constructor
@@ -61,7 +50,6 @@ namespace WpfApp1
             this.AverageRating = AverageRating;
 
         }
-        //public Movie() { } //Empty constructor for when I start working with an API to get movie data
 
         //ToString method for only displaying the movie title in the ListBox
         public override string ToString()

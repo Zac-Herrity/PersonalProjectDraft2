@@ -90,7 +90,6 @@
     <Compile Include="LoginCreation.xaml.cs">
       <DependentUpon>LoginCreation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Rating.cs" />
     <Compile Include="User.cs" />
     <Page Include="LoginCreation.xaml">
       <SubType>Designer</SubType>
