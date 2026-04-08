@@ -106,6 +106,10 @@ namespace WpfApp1
             Database db = new Database();
             seenMovies = db.LoadSeenMovies(currentUsername);
             seenMoviesList.ItemsSource = seenMovies;
+            foreach (Movie seen in seenMovies)
+            {
+                movieList.RemoveAll(m => m.Title == seen.Title);
+            }
             movieListBox.ItemsSource = movieList; // Bind the movie list to the ListBox
             genreCombo.ItemsSource = Enum.GetValues(typeof(Genre)); // Bind the Genre enum values to the ComboBox for filtering
 
