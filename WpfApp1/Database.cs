@@ -6,8 +6,10 @@ namespace WpfApp1
 {
     public class Database
     {
-        //connection string for local db (copied from db properties)
-        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SceneItData;Integrated Security=True;";
+        //new connection string, points at a db file so can be used on any machine
+        /*GPT had to be used to help me in achieving this
+         */
+        private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SceneItInfo;Integrated Security=True;";
         public bool UserValidation(string username, string password)
         {
             using (var connection = new System.Data.SqlClient.SqlConnection(connectionString))
