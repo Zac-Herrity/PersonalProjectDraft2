@@ -112,7 +112,7 @@ namespace WpfApp1
                     while (reader.Read()) //loops through the rows returned by the query
                     {
                         Movie movie = new Movie(0, reader["MovieTitle"].ToString(), reader["MovieImage"].ToString(), reader["ContentRating"].ToString(), reader["ReleaseYear"].ToString(),
-                            (Genre)reader["Genre"], (int)reader["Runtime"], (double)reader["AverageRating"]); 
+                            (Genre)Convert.ToInt32(reader["Genre"]), (int)reader["Runtime"], (double)reader["AverageRating"]); 
                         movie.UserRating = (int)reader["UserRating"]; //sets the user rating of the movie to the value in the db
                         seenMovies.Add(movie);
                     }
