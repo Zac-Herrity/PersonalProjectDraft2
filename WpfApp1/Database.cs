@@ -6,9 +6,6 @@ namespace WpfApp1
 {
     public class Database
     {
-        //new connection string, points at a db file so can be used on any machine
-        /*GPT had to be used to help me in achieving this
-         */
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SceneItInfo;Integrated Security=True;";
         public bool UserValidation(string username, string password)
         {
@@ -122,6 +119,47 @@ namespace WpfApp1
                 }
             }
             return seenMovies;
+        }
+
+        public void DbExists()
+        {
+            string masterConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;";
+            //master is used to check if the db exists
+            using (var connection = new SqlConnection(masterConnectionString))
+            {
+                connection.Open();
+                string checkDbQuery = "SELECT COUNT(*) FROM sys.databases WHERE name = 'SceneItInfo'";
+                var command = new SqlCommand(checkDbQuery, connection);
+                int exists = (int)command.ExecuteScalar();
+                if (exists == 0)
+                {
+                    string createDbQuery = "CREATE DATABASE SceneItInfo";
+                    var createCommand = new SqlCommand(createDbQuery, connection);
+                    createCommand.ExecuteNonQuery();
+
+                    //create tables
+                    string usersTableQuery = @"CREATE TABLE Users (
+                        Id INT IDENTITY(1,1) PRIMARY KEY,
+                        Username NVARCHAR(100) NOT NULL UNIQUE,
+                        Password NVARCHAR(100) NOT NULL,
+                        LoggedIn BIT NOT NULL)";
+                    var usersCommand = new SqlCommand(usersTableQuery, connection);
+                    usersCommand.ExecuteNonQuery();
+                    string seenMoviesTableQuery = @"CREATE TABLE SeenMovies (
+                        Id INT IDENTITY(1,1) PRIMARY KEY,
+                        Username NVARCHAR(100) NOT NULL,
+                        MovieTitle NVARCHAR(255) NOT NULL,
+                        MovieImage NVARCHAR(255),
+                        ContentRating NVARCHAR(50),
+                        Genre INT,
+                        Runtime INT,
+                        AverageRating FLOAT,
+                        ReleaseYear NVARCHAR(50) NULL,
+                        UserRating INT)";
+                    var seenMoviesCommand = new SqlCommand(seenMoviesTableQuery, connection);
+                    seenMoviesCommand.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

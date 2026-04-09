@@ -23,6 +23,8 @@ namespace WpfApp1
         public LoginCreation()
         {
             InitializeComponent();
+            Database db = new Database();
+            db.DbExists(); //Check if the database exists, if not create it
         }
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
