@@ -74,7 +74,7 @@ namespace WpfApp1
                 $"\nRuntime: {Runtime} minutes" +
                 $"\nRelease Year: {ReleaseYear}" +
                 $"\nAverage Rating: {AverageRating}/10 Stars" +
-                $"\nYour Rating: {UserRating}/10 Stars";
+                $"\nYour Rating: {UserRating}/5 Stars";
         }
 
     }
