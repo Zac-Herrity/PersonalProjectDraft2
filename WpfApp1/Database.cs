@@ -137,16 +137,25 @@ namespace WpfApp1
                     string createDbQuery = "CREATE DATABASE SceneItInfo";
                     var createCommand = new SqlCommand(createDbQuery, connection);
                     createCommand.ExecuteNonQuery();
-
-                    //create tables
-                    string usersTableQuery = @"CREATE TABLE Users (
+                    CreateTables(); //calls the create tables method to create the tables in the db
+                }
+            }
+        }
+        public void CreateTables()
+        {
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SceneItInfo;Integrated Security=True;";
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                //create tables
+                string usersTableQuery = @"CREATE TABLE Users (
                         Id INT IDENTITY(1,1) PRIMARY KEY,
                         Username NVARCHAR(100) NOT NULL UNIQUE,
                         Password NVARCHAR(100) NOT NULL,
                         LoggedIn BIT NOT NULL)";
-                    var usersCommand = new SqlCommand(usersTableQuery, connection);
-                    usersCommand.ExecuteNonQuery();
-                    string seenMoviesTableQuery = @"CREATE TABLE SeenMovies (
+                var usersCommand = new SqlCommand(usersTableQuery, connection);
+                usersCommand.ExecuteNonQuery();
+                string seenMoviesTableQuery = @"CREATE TABLE SeenMovies (
                         Id INT IDENTITY(1,1) PRIMARY KEY,
                         Username NVARCHAR(100) NOT NULL,
                         MovieTitle NVARCHAR(255) NOT NULL,
@@ -157,9 +166,8 @@ namespace WpfApp1
                         AverageRating FLOAT,
                         ReleaseYear NVARCHAR(50) NULL,
                         UserRating INT)";
-                    var seenMoviesCommand = new SqlCommand(seenMoviesTableQuery, connection);
-                    seenMoviesCommand.ExecuteNonQuery();
-                }
+                var seenMoviesCommand = new SqlCommand(seenMoviesTableQuery, connection);
+                seenMoviesCommand.ExecuteNonQuery();
             }
         }
     }
