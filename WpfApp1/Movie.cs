@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WpfApp1
+#region General
 {
     public enum Genre
     {
@@ -56,7 +57,9 @@ namespace WpfApp1
         {
             return Title;
         }
+        #endregion
 
+        #region MovieDetails
         public string GetMovieDetails() //Method to get the details of the movie for when a movie is selected in the ListBox
         {
             return $"Title: {Title}" +
@@ -76,8 +79,9 @@ namespace WpfApp1
                 $"\nAverage Rating: {AverageRating}/10 Stars" +
                 $"\nYour Rating: {UserRating}/5 Stars";
         }
+        #endregion
 
-    }
+}
 
     public class MovieData : DbContext
     {

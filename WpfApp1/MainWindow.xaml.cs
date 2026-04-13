@@ -100,6 +100,7 @@ namespace WpfApp1
             //passed from login
         }
 
+        #region General
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
             await API(); // Call the API method to get movie data when the window loads
@@ -133,6 +134,7 @@ namespace WpfApp1
             ratingCombo2.SelectedIndex = -1; //these are for the seen movies tab
 
         }
+        #endregion
 
         #region Movie Populating and Filtering
         private void movieListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -6,6 +6,7 @@ namespace WpfApp1
 {
     public class Database
     {
+        #region Users Data
         private string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SceneItInfo;Integrated Security=True;";
         public bool UserValidation(string username, string password)
         {
@@ -71,7 +72,9 @@ namespace WpfApp1
         {
             LoggedIn(username, false); //calls the logged in method to set logged in status to false
         }
+        #endregion
 
+        #region General
         public bool SaveSeenMovies(string username, Movie movie) //saves the movie that the user has seen to the db
         {
             using (var connection = new SqlConnection(connectionString))
@@ -120,7 +123,9 @@ namespace WpfApp1
             }
             return seenMovies;
         }
+        #endregion
 
+        #region DbCheck
         public void DbExists() 
             //On first attempt this created the db but not the tables
         {
@@ -170,5 +175,6 @@ namespace WpfApp1
                 seenMoviesCommand.ExecuteNonQuery();
             }
         }
+        #endregion
     }
 }

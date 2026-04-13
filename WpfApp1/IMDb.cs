@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WpfApp1
 {
-    
+
+    #region General
     public class ProductionCompany
     {
         public string id { get; set; }
@@ -64,6 +65,6 @@ namespace WpfApp1
         public int width { get; set; }
         public int height { get; set; }
     }
-
+    #endregion
 
 }

@@ -27,6 +27,7 @@ namespace WpfApp1
             db.DbExists(); //Check if the database exists, if not create it
         }
 
+        #region General
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
             string enteredPassword;
@@ -93,6 +94,7 @@ namespace WpfApp1
                 }
             }
         }
+        #endregion
 
         #region Password Misc
         private void showPassword_Checked(object sender, RoutedEventArgs e)
