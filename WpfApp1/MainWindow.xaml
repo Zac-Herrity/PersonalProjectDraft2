@@ -10,22 +10,19 @@
         <TabControl TabStripPlacement="Top" Name="MainTabControl">
             <TabItem>
                 <Grid Background="#0F172A">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="51*"/>
-                        <ColumnDefinition Width="446*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="title" Text="Scene It" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="287,50,0,0" 
-                               FontFamily="Bell MT" FontSize="60" FontWeight="Bold" FontStyle="Italic" Foreground="#F8E7B9" Grid.Column="1"></TextBlock>
-                    <TextBlock x:Name="chooseWhere" Text="Choose where to go!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="285,130,0,0" FontFamily="Bell MT"
+                    
+                    <TextBlock x:Name="title" Text="Scene It" VerticalAlignment="Top" Margin="250,50,250,0" 
+                               FontFamily="Bell MT" FontSize="60" FontWeight="Bold" FontStyle="Italic" Foreground="#F8E7B9" Grid.Column="1" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="chooseWhere" Text="Choose where to go!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="250,130,250,0" FontFamily="Bell MT"
                                FontSize="24" Foreground="White" Grid.Column="1"></TextBlock>
                     <Button x:Name="homeBtnList" Content="List Of Movies" Width="220" Height="55" FontSize="24" FontFamily="Bell MT" Background="#D4A017"
-                            Margin="285,210,0,0" Foreground="Black" Click="homeBtnList_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"></Button>
-                    <Button x:Name="homeBtnSeen" Content="Seen Movies" Width="220" Height="55" HorizontalAlignment="Left" VerticalAlignment="Top"
-                            Margin="285,280,0,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnSeen_Click" Grid.Column="1"></Button>
-                    <Button x:Name="homeBtnRandom" Content="Surprise Me!" Width="220" Height="55" HorizontalAlignment="Left" VerticalAlignment="Top"
-                            Margin="285,350,0,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnRandom_Click" Grid.Column="1"></Button>
-                    <Button x:Name="logoutBtn" Content="Logout" Width="120" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                            Margin="335,0,0,70" FontFamily="Bell MT" FontSize="20" Background="#1E293B" Foreground="White" BorderBrush="#D4A017"
+                            Margin="250,210,250,0" Foreground="Black" Click="homeBtnList_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"></Button>
+                    <Button x:Name="homeBtnSeen" Content="Seen Movies" Width="220" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"
+                            Margin="250,280,250,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnSeen_Click" Grid.Column="1"></Button>
+                    <Button x:Name="homeBtnRandom" Content="Surprise Me!" Width="220" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"
+                            Margin="250,350,250,0" FontFamily="Bell MT" FontSize="24" Background="#D4A017" Foreground="Black" Click="homeBtnRandom_Click" Grid.Column="1"></Button>
+                    <Button x:Name="logoutBtn" Content="Logout" Width="120" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                            Margin="250,0,250,70" FontFamily="Bell MT" FontSize="20" Background="#1E293B" Foreground="White" BorderBrush="#D4A017"
                             BorderThickness="2" Click="logoutBtn_Click" Grid.Column="1"></Button>
                 </Grid>
             </TabItem>
