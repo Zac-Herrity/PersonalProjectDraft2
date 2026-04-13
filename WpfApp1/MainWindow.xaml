@@ -98,7 +98,6 @@
                     </Border>
                 </Grid>
             </TabItem>
-
             <TabItem>
                 <Grid Background="#0F172A">
                     <Grid.ColumnDefinitions>
