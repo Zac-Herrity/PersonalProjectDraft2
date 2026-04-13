@@ -121,7 +121,8 @@ namespace WpfApp1
             return seenMovies;
         }
 
-        public void DbExists()
+        public void DbExists() 
+            //On first attempt this created the db but not the tables
         {
             string masterConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;";
             //master is used to check if the db exists
