@@ -119,20 +119,12 @@ namespace WpfApp1
             sortByCombo.Items.Add("Release Year");
             sortByCombo.SelectedIndex = 0; // Default to sorting by title
             ratingCombo.SelectedIndex = -1; // force the user to select a rating (prevents default selection of 1)
-
-            //filling rating combo box
-            ratingCombo.Items.Add(1);
-            ratingCombo.Items.Add(2);
-            ratingCombo.Items.Add(3);
-            ratingCombo.Items.Add(4);
-            ratingCombo.Items.Add(5);
-            ratingCombo2.Items.Add(1);
-            ratingCombo2.Items.Add(2);
-            ratingCombo2.Items.Add(3);
-            ratingCombo2.Items.Add(4);
-            ratingCombo2.Items.Add(5);
             ratingCombo2.SelectedIndex = -1; //these are for the seen movies tab
 
+            //filling rating combo box
+            List<int> comboRatings = new List<int> { 1, 2, 3, 4, 5 };
+            ratingCombo.ItemsSource = comboRatings;
+            ratingCombo2.ItemsSource = comboRatings;
         }
         #endregion
 
