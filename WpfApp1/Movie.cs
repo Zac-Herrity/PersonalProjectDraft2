@@ -82,12 +82,4 @@ namespace WpfApp1
         #endregion
 
 }
-
-    public class MovieData : DbContext
-    {
-        public MovieData() : base("SceneItData") { }
-
-        public DbSet<User> Users { get; set; } //DbSet for the User class, will be used to store user data in the database
-        public DbSet<Movie> Movies { get; set; } //DbSet for the Movie class, will be used to store movie data in the database
-    }
 }
