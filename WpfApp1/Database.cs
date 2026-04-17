@@ -142,9 +142,10 @@ namespace WpfApp1
                     string createDbQuery = "CREATE DATABASE SceneItInfo";
                     var createCommand = new SqlCommand(createDbQuery, connection);
                     createCommand.ExecuteNonQuery();
-                    CreateTables(); //calls the create tables method to create the tables in the db
+                   
                 }
             }
+            CreateTables(); //calls the create tables method to create the tables in the db
         }
         public void CreateTables()
         {
@@ -152,15 +153,29 @@ namespace WpfApp1
             using (var connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                //create tables
-                string usersTableQuery = @"CREATE TABLE Users (
+                //check to see if tables exist first
+                //users
+                string checkUsersTableQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Users'";
+                var checkUsersCommand = new SqlCommand(checkUsersTableQuery, connection);
+                int usersTableExists = (int)checkUsersCommand.ExecuteScalar();
+                if (usersTableExists == 0)
+                {
+                    //create tables
+                    string usersTableQuery = @"CREATE TABLE Users (
                         Id INT IDENTITY(1,1) PRIMARY KEY,
                         Username NVARCHAR(100) NOT NULL UNIQUE,
                         Password NVARCHAR(100) NOT NULL,
                         LoggedIn BIT NOT NULL)";
-                var usersCommand = new SqlCommand(usersTableQuery, connection);
-                usersCommand.ExecuteNonQuery();
-                string seenMoviesTableQuery = @"CREATE TABLE SeenMovies (
+                    var usersCommand = new SqlCommand(usersTableQuery, connection);
+                    usersCommand.ExecuteNonQuery();
+                }
+                //seen movies
+                string checkSeenMoviesTableQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'SeenMovies'";
+                var checkSeenMoviesCommand = new SqlCommand(checkSeenMoviesTableQuery, connection);
+                int seenMoviesTableExists = (int)checkSeenMoviesCommand.ExecuteScalar();
+                if (seenMoviesTableExists == 0)
+                {
+                    string seenMoviesTableQuery = @"CREATE TABLE SeenMovies (
                         Id INT IDENTITY(1,1) PRIMARY KEY,
                         Username NVARCHAR(100) NOT NULL,
                         MovieTitle NVARCHAR(255) NOT NULL,
@@ -171,8 +186,9 @@ namespace WpfApp1
                         AverageRating FLOAT,
                         ReleaseYear NVARCHAR(50) NULL,
                         UserRating INT)";
-                var seenMoviesCommand = new SqlCommand(seenMoviesTableQuery, connection);
-                seenMoviesCommand.ExecuteNonQuery();
+                    var seenMoviesCommand = new SqlCommand(seenMoviesTableQuery, connection);
+                    seenMoviesCommand.ExecuteNonQuery();
+                }
             }
         }
         #endregion
